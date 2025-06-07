@@ -41,9 +41,14 @@ public class CamRotation : MonoBehaviour
         float mouseX = lookDelta.x * Time.deltaTime * senseX;
         float mouseY = lookDelta.y * Time.deltaTime * senseY;
 
+        // Apply the mouse movement to the camera rotation
         yRotation += mouseX;
         xRotation -= mouseY;
+        
+        // Clamp the xRotation to prevent flipping the camera upside down
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        // Apply the rotation to the camera and orientation
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
         orientation.localRotation = Quaternion.Euler(0f, yRotation, 0f);
     }

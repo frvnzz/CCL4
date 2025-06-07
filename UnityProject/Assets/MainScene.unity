@@ -517,7 +517,7 @@ MonoBehaviour:
   groundDrag: 10
   jumpForce: 15
   jumpCoolDown: 0.4
-  airMultiplier: 7
+  airMultiplier: 0.1
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2

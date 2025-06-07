@@ -9,20 +9,19 @@ public class PlayerMovement : MonoBehaviour
 
     public float jumpForce;
 
-    // This line controls how long the player has to wait before jumping again
-    public float jumpCoolDown;
+    public float jumpCoolDown; // This line controls how long the player has to wait before jumping again
 
     bool readyToJump = true;
 
-    // This line controls how fast the player can move in the air
-    public float airMultiplier; 
+    public float airMultiplier; // This line controls how fast the player can move in the air
     [Header("Ground Check")] public float playerHeight;
-    public LayerMask whatIsGround;
-    bool grounded;
+
+    public LayerMask whatIsGround; // This line represents the ground layer
+    bool grounded; // This line checks if the player is on the ground
 
     public Transform orientation;
 
-    public InputActionReference moveAction;
+    public InputActionReference moveAction; 
     public InputActionReference jumpAction;
 
     Vector2 moveInput;
@@ -58,12 +57,12 @@ public class PlayerMovement : MonoBehaviour
         // Raycast measures the half of the player's height from the center point of the player to the ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        Debug.Log("Grounded: " + grounded);
         moveInput = moveAction != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
 
         // This line makes sure that the player doesn't move too fast
         SpeedControl();
 
+        // To avoid sliding, we need to apply drag when the player is grounded
         if (grounded)
         {
             // linearDamping is used to slow down the player 
@@ -73,12 +72,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearDamping = 0f;
         }
-
     }
 
     
 
-    // FixedUpdate is used for physics calculations
+    // FixedUpdate is used when working with physics on rigidbody. As MovePlayer uses AddForce, it is better to use FixedUpdate
     void FixedUpdate()
     {
         MovePlayer();
@@ -102,26 +100,29 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // This varibale helps to limit the player's speed, so that it doesn't exceed the moveSpeed value set in the inspector
     private void SpeedControl()
     {
+        // This line makes sure that the player moves only on the X and Z axis, so that it doesn't move up or down
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         if (flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
+            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z); 
         }
     }
 
     
+    // This function is called when the jump action is performed
     private void OnJump(InputAction.CallbackContext callbackContext)
     {
-        // This line makes sure that player jumps only when 1. the key is pressed, 2. the player is ready to jump, and 3. the player is grounded
+        // This line makes sure that player jumps only when 1. the player is ready to jump, and 2. the player is grounded
         if (readyToJump && grounded)
         {
             readyToJump = false;
 
-            Jump();
+            Jump(); 
 
             // This line makes sure that the player can jump again after a cooldown
             Invoke(nameof(ResetJump), jumpCoolDown);
@@ -131,13 +132,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        // This line makes sure that the player jumps the same height
+        // This line resets the Y velocity to 0 so that the player jumps the exact same height every time
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
-        // This line applies the force to the player in the upward directionx
+        // This line applies the force to the player in the upward direction
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
-        
     }
 
     private void ResetJump()
