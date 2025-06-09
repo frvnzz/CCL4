@@ -1,5 +1,7 @@
 # CCL4 - Group 8 Portfolio
 
+Not final
+
 ### Mockup
 The test scene shows a player capsule that is followed by the enemy capsule that shoots out a raycast for the player hit. The player will be followed around by the enemy and the player needs to fight off the waves of enemies, which are displayed in the UI.
 ![Mockup](./img/mockup.png)
