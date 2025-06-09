@@ -1,16 +1,12 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    void OnCollisionStay(Collision collision)
+    // This script handles the enemy's collision with the player
+
+    void OnllisionEnter(Collision collision)
     {
-        PlayerHealth.instance.health--;
-        
-        if (PlayerHealth.instance.health < 0)
-        {
-            PlayerHealth.instance.health = 0;
-        }
-        Debug.Log("Health decreased. Current Health: " + PlayerHealth.instance.health);
+        GameManager.instance.TakeDamage(10);
+        Debug.Log("Player hit by enemy!"); // This line logs a message to the console when the player is hit by an enemy  
     }
 }

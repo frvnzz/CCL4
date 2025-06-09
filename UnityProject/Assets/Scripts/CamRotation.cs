@@ -44,7 +44,7 @@ public class CamRotation : MonoBehaviour
         // Apply the mouse movement to the camera rotation
         yRotation += mouseX;
         xRotation -= mouseY;
-        
+
         // Clamp the xRotation to prevent flipping the camera upside down
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
