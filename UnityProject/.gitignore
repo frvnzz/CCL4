@@ -11,6 +11,9 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
+# Unity Asset Store
+/[Aa]ssets/AssetStore/
+
 # Logs
 *.log
 

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 
@@ -5,12 +6,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public HealthBar HealthBar;
+    // public HealthBar HealthBar;
 
-    public int currentHealth;
+    public TMP_Text healthText;
+    public TMP_Text ammoText;
+    public TMP_Text scoreText;
+
+    private int currentHealth;
     
     [SerializeField] public int maxHealth = 100; // Maximum health of the player
-
+    [SerializeField] public PlayerController playerController;
 
     void Start()
     {
@@ -22,25 +27,24 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(instance);
 
         currentHealth = maxHealth;
-        HealthBar.SetMaxHealth(maxHealth);
+        healthText.text = "Health: " + currentHealth;
+        // HealthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
     {
-        // This method can be used to check for player input or other game events
-        // For example, you could check if the player presses a key to take damage
-        if (Input.GetKeyDown(KeyCode.K)) // Press Space to simulate taking damage
-        {
-            TakeDamage(10);
-        }
+        // Update ammo and score text
+        ammoText.text = playerController.currentAmmo + "/" + playerController.maxAmmo;
+        // scoreText.text = "Score: " + currentScore;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        HealthBar.SetHealth(currentHealth);
+        healthText.text = "Health: " + currentHealth;
+        // HealthBar.SetHealth(currentHealth);
     }
 }
