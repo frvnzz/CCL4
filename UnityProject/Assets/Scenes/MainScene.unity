@@ -693,15 +693,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708f0a9a11e4841ecbecc834923ea7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  groundDrag: 10
+  moveSpeed: 10
+  groundDrag: 12
   jumpForce: 15
   jumpCoolDown: 0.4
   airMultiplier: 0.1
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 64
   orientation: {fileID: 750948035}
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 977910826}
   - component: {fileID: 977910825}
   - component: {fileID: 977910824}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1239,8 +1239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf5ea198fe8b440f95cca02f2194751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  senseX: 400
-  senseY: 400
+  senseX: 40
+  senseY: 40
   lookAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   orientation: {fileID: 750948035}
 --- !u!1 &1579858225
