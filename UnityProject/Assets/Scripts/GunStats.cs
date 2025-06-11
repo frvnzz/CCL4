@@ -9,4 +9,5 @@ public class GunStats : MonoBehaviour
     public bool isAutomatic = false;
     public float fireRate = 5f;
     public int damage = 10;
+    public ParticleSystem muzzleFlash;
 }

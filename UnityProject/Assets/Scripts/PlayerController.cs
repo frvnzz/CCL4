@@ -205,6 +205,9 @@ public class PlayerController : MonoBehaviour
         if (isReloading || currentAmmo <= 0) return;
         currentAmmo--;
 
+        if (currentGunStats.muzzleFlash != null)
+            currentGunStats.muzzleFlash.Play();
+
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         RaycastHit hit;
 

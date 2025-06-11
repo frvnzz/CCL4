@@ -74,6 +74,7 @@ public class AIController : MonoBehaviour
     public void DestroyEnemy()
     {
         NotifyDeath();
+        GameManager.instance.AddScore(100); //Add score for defeating the enemy
         Destroy(gameObject);
     }
 
