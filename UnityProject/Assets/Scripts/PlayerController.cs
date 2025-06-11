@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     public Transform gunHolder;
     private GameObject currentGunObject;
     private GunStats currentGunStats;
+    private int[] totalAmmoPerWeapon;
+    private int totalAmmo = 0;
+    private int[] magAmmoPerWeapon;
+    private int currentAmmo;
 
 
     private Rigidbody rb;
@@ -46,7 +50,6 @@ public class PlayerController : MonoBehaviour
     public int maxAmmo;
     private float fireRange;
     private float gunKnockbackAmount;
-    public int currentAmmo;
     private bool isReloading = false;
     private bool isFiring = false;
     private float fireCooldown = 0f;
@@ -67,6 +70,14 @@ public class PlayerController : MonoBehaviour
 
         if (gunPrefabs != null && gunPrefabs.Length > 0)
         {
+            totalAmmoPerWeapon = new int[gunPrefabs.Length];
+            magAmmoPerWeapon = new int[gunPrefabs.Length]; // Add this line
+            for (int i = 0; i < gunPrefabs.Length; i++)
+            {
+                var stats = gunPrefabs[i].GetComponent<GunStats>();
+                totalAmmoPerWeapon[i] = stats != null ? stats.startingTotalAmmo : 90;
+                magAmmoPerWeapon[i] = stats != null ? stats.maxAmmo : 10; // Start with full mag
+            }
             EquipGun(0);
         }
     }
@@ -204,6 +215,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isReloading || currentAmmo <= 0) return;
         currentAmmo--;
+        magAmmoPerWeapon[currentGunIndex] = currentAmmo; // Save mag ammo
 
         if (currentGunStats.muzzleFlash != null)
             currentGunStats.muzzleFlash.Play();
@@ -232,6 +244,13 @@ public class PlayerController : MonoBehaviour
         }
         fireCooldown = 1f / currentGunStats.fireRate;
         gunKnockbackOffset = gunKnockbackAmount;
+
+        // Prevent firing if both current and total ammo are depleted
+        if (currentAmmo <= 0 && totalAmmoPerWeapon[currentGunIndex] <= 0)
+        {
+            currentAmmo = 0;
+            Debug.Log("Out of ammo!");
+        }
     }
 
     bool IsGrounded()
@@ -300,7 +319,13 @@ public class PlayerController : MonoBehaviour
         }
         gunTransform.localPosition = gunInitialLocalPos;
 
-        currentAmmo = maxAmmo;
+        int ammoNeeded = maxAmmo - currentAmmo;
+        int ammoToReload = Mathf.Min(ammoNeeded, totalAmmoPerWeapon[currentGunIndex]);
+        currentAmmo += ammoToReload;
+        totalAmmoPerWeapon[currentGunIndex] -= ammoToReload;
+        magAmmoPerWeapon[currentGunIndex] = currentAmmo; // Save mag ammo
+        totalAmmo = totalAmmoPerWeapon[currentGunIndex]; // For UI
+
         isReloading = false;
     }
 
@@ -332,7 +357,6 @@ public class PlayerController : MonoBehaviour
         currentGunStats = currentGunObject.GetComponent<GunStats>();
 
         // Set stats from prefab
-        currentAmmo = currentGunStats.maxAmmo;
         reloadTime = currentGunStats.reloadTime;
         maxAmmo = currentGunStats.maxAmmo;
         fireRange = currentGunStats.fireRange;
@@ -343,6 +367,8 @@ public class PlayerController : MonoBehaviour
         gunInitialLocalPos = gunTransform.localPosition;
 
         currentGunIndex = index;
+        currentAmmo = magAmmoPerWeapon[currentGunIndex];
+        totalAmmo = totalAmmoPerWeapon[currentGunIndex];
     }
 
     IEnumerator ShowHitmarker(float duration)
@@ -352,6 +378,47 @@ public class PlayerController : MonoBehaviour
             hitmarker.SetActive(true);
             yield return new WaitForSeconds(duration);
             hitmarker.SetActive(false);
+        }
+    }
+
+    public int CurrentAmmo
+    {
+        get { return currentAmmo; }
+    }
+
+    public int TotalAmmo
+    {
+        get { return totalAmmo; }
+    }
+
+    public void ResetAllAmmo()
+    {
+        for (int i = 0; i < gunPrefabs.Length; i++)
+        {
+            var stats = gunPrefabs[i].GetComponent<GunStats>();
+            totalAmmoPerWeapon[i] = stats != null ? stats.startingTotalAmmo : 90;
+            magAmmoPerWeapon[i] = stats != null ? stats.maxAmmo : 10;
+        }
+        // Reset currently equipped gun's ammo as well
+        currentAmmo = magAmmoPerWeapon[currentGunIndex];
+        totalAmmo = totalAmmoPerWeapon[currentGunIndex];
+    }
+
+    public void AddAmmo(GameObject weaponPrefab, int amount)
+    {
+        for (int i = 0; i < gunPrefabs.Length; i++)
+        {
+            if (gunPrefabs[i] == weaponPrefab)
+            {
+                var stats = gunPrefabs[i].GetComponent<GunStats>();
+                int maxTotal = stats != null ? stats.maxTotalAmmo : 9999;
+                totalAmmoPerWeapon[i] = Mathf.Min(totalAmmoPerWeapon[i] + amount, maxTotal);
+
+                // If this is the currently equipped weapon, update totalAmmo for UI
+                if (i == currentGunIndex)
+                    totalAmmo = totalAmmoPerWeapon[i];
+                break;
+            }
         }
     }
 }

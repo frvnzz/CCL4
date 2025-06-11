@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Update ammo and score text
-        ammoText.text = playerController.currentAmmo + "/" + playerController.maxAmmo;
+        ammoText.text = playerController.CurrentAmmo + "/" + playerController.TotalAmmo;
         scoreText.text = "Score: " + currentScore;
 
         if (currentHealth <= 0)
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         playerController.enabled = true;
 
         // Reset player ammo
-        playerController.currentAmmo = playerController.maxAmmo;
+        playerController.ResetAllAmmo();
 
         //Reset position
         playerController.transform.position = Vector3.zero; // Reset to a specific position, e.g., origin

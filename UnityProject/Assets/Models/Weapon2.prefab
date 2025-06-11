@@ -47,12 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmo: 31
+  startingTotalAmmo: 60
   reloadTime: 1.5
   fireRange: 50
   gunKnockbackAmount: 0.7
   isAutomatic: 1
   fireRate: 15
-  damage: 5
+  damage: 10
   muzzleFlash: {fileID: 1490789905730641101}
 --- !u!1001 &2569600054950622822
 PrefabInstance:
