@@ -1634,26 +1634,11 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
     spawnDelay: 5
   - enemies:
     - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
     spawnDelay: 4
   - enemies:
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
     - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
     spawnDelay: 2
 --- !u!4 &697358057
@@ -2121,7 +2106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
-  mouseSensitivity: 0.1
+  mouseSensitivity: 1.08
   cameraTransform: {fileID: 1444515705}
   hitEffectPrefab: {fileID: 3839971466004750073, guid: 21fbc3180e8620e4e8e8b1c68cd34909, type: 3}
   reloadText: {fileID: 1189761598}

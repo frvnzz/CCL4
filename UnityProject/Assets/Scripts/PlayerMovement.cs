@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    
+
 
     private void OnEnable()
     {

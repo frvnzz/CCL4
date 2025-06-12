@@ -17,6 +17,11 @@ public class AIController : MonoBehaviour
 
     private bool invulnerable = false;
 
+    [SerializeField] public Animator animator;
+
+    public bool isWalking;
+    //private bool isAttacking;
+
     void Start()
     {
         destination = GameObject.FindGameObjectWithTag("Player");
@@ -24,6 +29,7 @@ public class AIController : MonoBehaviour
         agent.speed = speed;
         agent.stoppingDistance = attackRange;
 
+        animator = GetComponentInChildren<Animator>();
         // lineRenderer = gameObject.AddComponent<LineRenderer>();
         // lineRenderer.positionCount = 2;
         // lineRenderer.startWidth = 0.05f;
@@ -42,7 +48,26 @@ public class AIController : MonoBehaviour
         // Vector3 end = start + transform.forward * attackRange;
         // lineRenderer.SetPosition(0, start);
         // lineRenderer.SetPosition(1, end);
-        AttackPlayer();
+       
+       // Check if agent is in attack range
+       
+        bool inAttackRange = attackRange > agent.remainingDistance;
+         animator.SetBool("Attacking", inAttackRange);
+
+        //Debug.Log("In Attack Range: " + inAttackRange + ", Remaining Distance: " + agent.remainingDistance);
+        if (!inAttackRange)
+        {
+            isWalking = true;
+            animator.SetBool("Walking", isWalking);
+        }
+        else
+        {
+            isWalking = false;
+            animator.SetBool("Walking", isWalking);
+        }
+        Debug.Log("Walking: " + isWalking);
+
+        AttackPlayer(inAttackRange);
     }
 
     public void NotifyDeath()
@@ -51,8 +76,10 @@ public class AIController : MonoBehaviour
             OnEnemyDefeated.Invoke();
     }
 
-    public void AttackPlayer()
+    public void AttackPlayer(bool inAttackRange)
     {
+        if (!inAttackRange) return; // Only attack if in range
+
         RaycastHit hit;
         Vector3 direction = transform.forward;
 
@@ -61,11 +88,15 @@ public class AIController : MonoBehaviour
             // Debug.Log("Raycast hit: " + hit.collider.name);
             if (hit.collider.CompareTag("Player"))
             {
+        
 
                 if (invulnerable) return;
 
                 invulnerable = true;
+
+
                 GameManager.instance.TakeDamage(attackDamage);
+
                 StartCoroutine(DamageDelay()); // Delay to simulate attack animation
             }
         }
