@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     public Transform cameraTransform;
+    public GameObject hitEffectPrefab;
 
     [Header("Gun Wobble Settings")]
     private Vector3 gunInitialLocalPos;
@@ -230,7 +231,21 @@ public class PlayerController : MonoBehaviour
             if (hit.collider.CompareTag("Enemy"))
             {
                 hit.collider.GetComponent<AIController>()?.TakeDamage(currentGunStats.damage);
-                Debug.Log("Enemy hit!");
+                // Debug.Log("Enemy hit!");
+
+
+                GameObject effect = Instantiate(
+                    hitEffectPrefab,
+                    hit.point,
+                    Quaternion.LookRotation(hit.normal),
+                    hit.collider.transform // Parent to enemy
+                );
+                ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+                if (ps != null)
+                    Destroy(effect, ps.main.duration);
+                else
+                    Destroy(effect, 2f);
+
 
                 if (hitmarkerCoroutine != null)
                     StopCoroutine(hitmarkerCoroutine);
