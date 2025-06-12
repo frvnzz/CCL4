@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9105694948605376516}
   - component: {fileID: 2068826607654354542}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: ZombieOne
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,6 +144,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 952733436682162648}
     m_Modifications:
+    - target: {fileID: -8743768780697587657, guid: 51f7aeae8ff154cb89de939c870e5292, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 286ef0fc63f7742fcb00310ce64c6325, type: 2}
+    - target: {fileID: -8743768780697587657, guid: 51f7aeae8ff154cb89de939c870e5292, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 56cbfbf8412eb4dd7a1c9f588c0446a5, type: 2}
+    - target: {fileID: -8743768780697587657, guid: 51f7aeae8ff154cb89de939c870e5292, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 08a1a0927242e419fa070bbb2601ac3b, type: 2}
     - target: {fileID: -8679921383154817045, guid: 51f7aeae8ff154cb89de939c870e5292, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15
