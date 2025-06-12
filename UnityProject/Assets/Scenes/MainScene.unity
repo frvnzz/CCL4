@@ -717,9 +717,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1e739ee059d4702a8bf43f31d2be57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthBar: {fileID: 2122839785}
-  currentHealth: 0
+  healthText: {fileID: 0}
+  ammoText: {fileID: 0}
+  scoreText: {fileID: 0}
+  gameOverPanel: {fileID: 0}
   maxHealth: 100
+  playerController: {fileID: 0}
 --- !u!120 &552939173
 LineRenderer:
   serializedVersion: 2

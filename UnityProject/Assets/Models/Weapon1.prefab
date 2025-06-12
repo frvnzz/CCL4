@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAmmo: 8
   startingTotalAmmo: 24
+  maxTotalAmmo: 240
   reloadTime: 1.5
   fireRange: 50
   gunKnockbackAmount: 0.5
@@ -200,6 +201,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2223585029005179811, guid: 25f6c335642acdc47b0decb3c8e11074, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 3839971466004750073, guid: 25f6c335642acdc47b0decb3c8e11074, type: 3}
       propertyPath: m_Name
       value: Muzzle Flash
