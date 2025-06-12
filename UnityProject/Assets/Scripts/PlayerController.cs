@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public Transform cameraTransform;
     public GameObject hitEffectPrefab;
+    public GameObject reloadText;
 
     [Header("Gun Wobble Settings")]
     private Vector3 gunInitialLocalPos;
@@ -260,11 +261,16 @@ public class PlayerController : MonoBehaviour
         fireCooldown = 1f / currentGunStats.fireRate;
         gunKnockbackOffset = gunKnockbackAmount;
 
+        // Show reload text if mag is empty
+        if (currentAmmo <= 0 && reloadText != null)
+        {
+            reloadText.SetActive(true);
+        }
+
         // Prevent firing if both current and total ammo are depleted
         if (currentAmmo <= 0 && totalAmmoPerWeapon[currentGunIndex] <= 0)
         {
             currentAmmo = 0;
-            Debug.Log("Out of ammo!");
         }
     }
 
@@ -342,6 +348,7 @@ public class PlayerController : MonoBehaviour
         totalAmmo = totalAmmoPerWeapon[currentGunIndex]; // For UI
 
         isReloading = false;
+        reloadText.SetActive(false);
     }
 
     void HandleGunSwitch()
