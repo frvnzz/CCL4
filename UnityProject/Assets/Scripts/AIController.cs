@@ -1,9 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
     [SerializeField] float attackRange = 2.0f;
-    [SerializeField] float attackDamage = 10.0f;
+    [SerializeField] int attackDamage = 10;
+    [SerializeField] float attackDelay = 2.0f;
+    [SerializeField] float speed = 3.5f;
+    [SerializeField] int health = 100;
 
     private GameObject destination;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -11,19 +15,22 @@ public class AIController : MonoBehaviour
 
     public event System.Action OnEnemyDefeated;
 
+    private bool invulnerable = false;
+
     void Start()
     {
         destination = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.speed = speed;
+        agent.stoppingDistance = attackRange;
 
-        // Add and configure LineRenderer
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
-        lineRenderer.startWidth = 0.05f;
-        lineRenderer.endWidth = 0.05f;
-        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.red;
-        lineRenderer.endColor = Color.red;
+        // lineRenderer = gameObject.AddComponent<LineRenderer>();
+        // lineRenderer.positionCount = 2;
+        // lineRenderer.startWidth = 0.05f;
+        // lineRenderer.endWidth = 0.05f;
+        // lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        // lineRenderer.startColor = Color.red;
+        // lineRenderer.endColor = Color.red;
     }
 
     void Update()
@@ -31,10 +38,10 @@ public class AIController : MonoBehaviour
         agent.SetDestination(destination.transform.position);
 
         // Visualize the ray constantly
-        Vector3 start = transform.position;
-        Vector3 end = start + transform.forward * attackRange;
-        lineRenderer.SetPosition(0, start);
-        lineRenderer.SetPosition(1, end);
+        // Vector3 start = transform.position;
+        // Vector3 end = start + transform.forward * attackRange;
+        // lineRenderer.SetPosition(0, start);
+        // lineRenderer.SetPosition(1, end);
         AttackPlayer();
     }
 
@@ -54,8 +61,12 @@ public class AIController : MonoBehaviour
             // Debug.Log("Raycast hit: " + hit.collider.name);
             if (hit.collider.CompareTag("Player"))
             {
-                Debug.Log("Player hit!");
-                // Reduce player's health
+
+                if (invulnerable) return;
+
+                invulnerable = true;
+                GameManager.instance.TakeDamage(attackDamage);
+                StartCoroutine(DamageDelay()); // Delay to simulate attack animation
             }
         }
     }
@@ -63,6 +74,22 @@ public class AIController : MonoBehaviour
     public void DestroyEnemy()
     {
         NotifyDeath();
+        GameManager.instance.AddScore(100); //Add score for defeating the enemy
         Destroy(gameObject);
+    }
+
+    IEnumerator DamageDelay()
+    {
+        yield return new WaitForSeconds(attackDelay);
+        invulnerable = false;
+    }
+    
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            DestroyEnemy();
+        }
     }
 }
