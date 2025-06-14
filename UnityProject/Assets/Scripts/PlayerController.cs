@@ -132,6 +132,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        // Debug movement
+        Debug.Log("Player Velocity: " + rb.linearVelocity);
         if (jumpPressed)
         {
             Jump();
@@ -143,6 +145,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        //Debug.Log("Move Input: " + moveInput);
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -190,6 +193,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         Vector3 velocity = new Vector3(move.x * moveSpeed, rb.linearVelocity.y, move.z * moveSpeed);
+        //Debug.Log("Move Velocity: " + velocity);
         rb.linearVelocity = velocity;
     }
 
