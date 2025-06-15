@@ -28,6 +28,13 @@ Not final
 The test scene shows a player capsule that is followed by the enemy capsule that shoots out a raycast for the player hit. The player will be followed around by the enemy and the player needs to fight off the waves of enemies, which are displayed in the UI.
 ![Mockup](./img/mockup.png)
 
+### Feature Description
+- Explore the map by running, sprinting and jumping
+- Defeat Enemy Waves
+- Use various weapons with different stats
+- Reload your weapons and pick up ammo crates once you run out of bullets
+- Enemies have idle, walking, and attack animations and will always navigate to the player using NavMesh.  
+
 ### System Design
 #### Player:
 - Shoots enemies with weapons.
