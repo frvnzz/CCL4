@@ -22,10 +22,11 @@ public class AIController : MonoBehaviour
     private Rigidbody[] ragdollBodies;
     private Collider[] ragdollColliders;
 
-    public bool isWalking;
+    private bool isWalking;
+    public float despawnEnemyTime;
     //private bool isAttacking;
 
-    
+
 
     void Start()
     {
@@ -117,7 +118,7 @@ public class AIController : MonoBehaviour
         SetRagdollActive(true);
         NotifyDeath();
         GameManager.instance.AddScore(100); //Add score for defeating the enemy
-        //Destroy(gameObject);
+        Destroy(gameObject, despawnEnemyTime);
     }
 
     IEnumerator DamageDelay()
