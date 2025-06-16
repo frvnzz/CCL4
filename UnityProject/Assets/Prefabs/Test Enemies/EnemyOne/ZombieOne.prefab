@@ -3613,7 +3613,7 @@ MonoBehaviour:
   speed: 3.5
   health: 100
   animator: {fileID: 781845252377187802}
-  isWalking: 1
+  despawnEnemyTime: 5
 --- !u!195 &9105694948605376516
 NavMeshAgent:
   m_ObjectHideFlags: 0

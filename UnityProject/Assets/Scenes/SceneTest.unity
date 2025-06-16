@@ -439,14 +439,14 @@ MonoBehaviour:
   waveText: {fileID: 1632577879}
   waves:
   - enemies:
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
+    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
     spawnDelay: 5
   - enemies:
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
+    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
     spawnDelay: 4
   - enemies:
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    spawnDelay: 2
+    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
+    spawnDelay: 4
 --- !u!4 &200211457
 Transform:
   m_ObjectHideFlags: 0
