@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,16 +27,12 @@ public class PlayerController : MonoBehaviour
     private float gunKnockbackOffset = 0f;
 
     [Header("Weapons")]
-    private int currentGunIndex = 0;
     public GameObject[] gunPrefabs;
     public Transform gunHolder;
-    private GameObject currentGunObject;
-    private GunStats currentGunStats;
-    private int[] totalAmmoPerWeapon;
-    private int totalAmmo = 0;
-    private int[] magAmmoPerWeapon;
-    private int currentAmmo;
 
+    private List<WeaponInstance> weapons = new List<WeaponInstance>();
+    private int currentGunIndex = 0;
+    private WeaponInstance currentWeapon;
 
     private Rigidbody rb;
     private PlayerInput playerInput;
@@ -45,13 +42,8 @@ public class PlayerController : MonoBehaviour
     private float cameraPitch = 0f;
     private float scrollInput;
 
-
     //gun settings
     private Transform gunTransform;
-    private float reloadTime;
-    public int maxAmmo;
-    private float fireRange;
-    private float gunKnockbackAmount;
     private bool isReloading = false;
     private bool isFiring = false;
     private float fireCooldown = 0f;
@@ -70,15 +62,13 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        // Initialize weapons
         if (gunPrefabs != null && gunPrefabs.Length > 0)
         {
-            totalAmmoPerWeapon = new int[gunPrefabs.Length];
-            magAmmoPerWeapon = new int[gunPrefabs.Length]; // Add this line
-            for (int i = 0; i < gunPrefabs.Length; i++)
+            foreach (var prefab in gunPrefabs)
             {
-                var stats = gunPrefabs[i].GetComponent<GunStats>();
-                totalAmmoPerWeapon[i] = stats != null ? stats.startingTotalAmmo : 90;
-                magAmmoPerWeapon[i] = stats != null ? stats.maxAmmo : 10; // Start with full mag
+                var stats = prefab.GetComponent<GunStats>();
+                weapons.Add(new WeaponInstance(prefab, stats));
             }
             EquipGun(0);
         }
@@ -118,13 +108,13 @@ public class PlayerController : MonoBehaviour
         HandleGunWobble();
         HandleGunSwitch();
 
-        if (currentGunStats != null && currentGunStats.isAutomatic && isFiring && !isReloading)
+        if (currentWeapon != null && currentWeapon.Stats.isAutomatic && isFiring && !isReloading)
         {
             fireCooldown -= Time.deltaTime;
             if (fireCooldown <= 0f)
             {
                 Fire();
-                fireCooldown = 1f / currentGunStats.fireRate; // fireRate = shots per second
+                fireCooldown = 1f / currentWeapon.Stats.fireRate;
             }
         }
     }
@@ -158,9 +148,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (currentGunStats == null) return;
+        if (currentWeapon == null) return;
 
-        if (currentGunStats.isAutomatic)
+        if (currentWeapon.Stats.isAutomatic)
         {
             if (context.performed)
                 isFiring = true;
@@ -182,7 +172,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnScrollWheel(InputAction.CallbackContext context)
     {
-        // If you use Vector2, use context.ReadValue<Vector2>().y
         scrollInput = context.ReadValue<Vector2>().y;
     }
 
@@ -215,31 +204,26 @@ public class PlayerController : MonoBehaviour
 
     void Fire()
     {
-        if (isReloading || currentAmmo <= 0) return;
-        currentAmmo--;
-        magAmmoPerWeapon[currentGunIndex] = currentAmmo; // Save mag ammo
+        if (isReloading || currentWeapon.CurrentAmmo <= 0) return;
+        currentWeapon.CurrentAmmo--;
 
-        if (currentGunStats.muzzleFlash != null)
-            currentGunStats.muzzleFlash.Play();
+        if (currentWeapon.Stats.muzzleFlash != null)
+            currentWeapon.Stats.muzzleFlash.Play();
 
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, fireRange))
+        if (Physics.Raycast(ray, out hit, currentWeapon.Stats.fireRange))
         {
-            // Debug.Log("Hit: " + hit.collider.name);
-
             if (hit.collider.CompareTag("Enemy"))
             {
-                hit.collider.GetComponent<AIController>()?.TakeDamage(currentGunStats.damage);
-                // Debug.Log("Enemy hit!");
-
+                hit.collider.GetComponent<AIController>()?.TakeDamage(currentWeapon.Stats.damage);
 
                 GameObject effect = Instantiate(
                     hitEffectPrefab,
                     hit.point,
                     Quaternion.LookRotation(hit.normal),
-                    hit.collider.transform // Parent to enemy
+                    hit.collider.transform
                 );
                 ParticleSystem ps = effect.GetComponent<ParticleSystem>();
                 if (ps != null)
@@ -247,30 +231,21 @@ public class PlayerController : MonoBehaviour
                 else
                     Destroy(effect, 2f);
 
-
                 if (hitmarkerCoroutine != null)
                     StopCoroutine(hitmarkerCoroutine);
                 hitmarkerCoroutine = StartCoroutine(ShowHitmarker(hitmarkerDuration));
             }
-
         }
         else
         {
             Debug.Log("Missed!");
         }
-        fireCooldown = 1f / currentGunStats.fireRate;
-        gunKnockbackOffset = gunKnockbackAmount;
+        fireCooldown = 1f / currentWeapon.Stats.fireRate;
+        gunKnockbackOffset = currentWeapon.Stats.gunKnockbackAmount;
 
-        // Show reload text if mag is empty
-        if (currentAmmo <= 0 && reloadText != null)
+        if (currentWeapon.CurrentAmmo <= 0 && reloadText != null)
         {
             reloadText.SetActive(true);
-        }
-
-        // Prevent firing if both current and total ammo are depleted
-        if (currentAmmo <= 0 && totalAmmoPerWeapon[currentGunIndex] <= 0)
-        {
-            currentAmmo = 0;
         }
     }
 
@@ -283,13 +258,10 @@ public class PlayerController : MonoBehaviour
     {
         if (gunTransform == null) return;
 
-        // --- SWAY ---
-        // Use look delta for sway, and decay back to zero
         gunSwayOffset = Vector3.Lerp(gunSwayOffset, Vector3.zero, Time.deltaTime * gunSwaySpeed);
         gunSwayOffset += new Vector3(lookInput.x, lookInput.y, 0) * gunSwayAmount;
-        gunSwayOffset = Vector3.ClampMagnitude(gunSwayOffset, gunSwayAmount * 2f); // Clamp sway so it doesn't go too far
+        gunSwayOffset = Vector3.ClampMagnitude(gunSwayOffset, gunSwayAmount * 2f);
 
-        // --- BOB ---
         if (moveInput.sqrMagnitude > 0.01f)
             gunBobTimer += Time.deltaTime * gunBobSpeed;
         else
@@ -298,27 +270,23 @@ public class PlayerController : MonoBehaviour
         float bobOffset = Mathf.Sin(gunBobTimer) * gunBobAmount;
         Vector3 bob = new Vector3(0, bobOffset, 0);
 
-        // --- KNOCKBACK ---
         gunKnockbackOffset = Mathf.Lerp(gunKnockbackOffset, 0f, Time.deltaTime * gunKnockbackDecay);
         Vector3 knockback = new Vector3(0, 0, -gunKnockbackOffset);
 
-        // --- APPLY ---
         Vector3 targetPos = gunInitialLocalPos + gunSwayOffset + bob + knockback;
         gunTransform.localPosition = Vector3.Lerp(gunTransform.localPosition, targetPos, Time.deltaTime * gunSwaySpeed);
     }
 
     private IEnumerator Reload()
     {
-        if (isReloading || currentAmmo == maxAmmo) yield break;
+        if (isReloading || currentWeapon.CurrentAmmo == currentWeapon.Stats.maxAmmo) yield break;
         isReloading = true;
 
-        // Animate gun down
         float elapsed = 0f;
-        float moveDuration = reloadTime * 0.4f;
+        float moveDuration = currentWeapon.Stats.reloadTime * 0.4f;
         Vector3 startPos = gunTransform.localPosition;
-        Vector3 downPos = gunInitialLocalPos + Vector3.down * 0.7f; // How far to move down
+        Vector3 downPos = gunInitialLocalPos + Vector3.down * 0.7f;
 
-        // Move gun down
         while (elapsed < moveDuration)
         {
             gunTransform.localPosition = Vector3.Lerp(startPos, downPos, elapsed / moveDuration);
@@ -327,10 +295,8 @@ public class PlayerController : MonoBehaviour
         }
         gunTransform.localPosition = downPos;
 
-        // Wait in down position
-        yield return new WaitForSeconds(reloadTime * 0.2f);
+        yield return new WaitForSeconds(currentWeapon.Stats.reloadTime * 0.2f);
 
-        // Move gun back up
         elapsed = 0f;
         while (elapsed < moveDuration)
         {
@@ -340,12 +306,10 @@ public class PlayerController : MonoBehaviour
         }
         gunTransform.localPosition = gunInitialLocalPos;
 
-        int ammoNeeded = maxAmmo - currentAmmo;
-        int ammoToReload = Mathf.Min(ammoNeeded, totalAmmoPerWeapon[currentGunIndex]);
-        currentAmmo += ammoToReload;
-        totalAmmoPerWeapon[currentGunIndex] -= ammoToReload;
-        magAmmoPerWeapon[currentGunIndex] = currentAmmo; // Save mag ammo
-        totalAmmo = totalAmmoPerWeapon[currentGunIndex]; // For UI
+        int ammoNeeded = currentWeapon.Stats.maxAmmo - currentWeapon.CurrentAmmo;
+        int ammoToReload = Mathf.Min(ammoNeeded, currentWeapon.TotalAmmo);
+        currentWeapon.CurrentAmmo += ammoToReload;
+        currentWeapon.TotalAmmo -= ammoToReload;
 
         isReloading = false;
         reloadText.SetActive(false);
@@ -355,12 +319,12 @@ public class PlayerController : MonoBehaviour
     {
         if (scrollInput > 0f)
         {
-            int next = (currentGunIndex + 1) % gunPrefabs.Length;
+            int next = (currentGunIndex + 1) % weapons.Count;
             EquipGun(next);
         }
         else if (scrollInput < 0f)
         {
-            int prev = (currentGunIndex - 1 + gunPrefabs.Length) % gunPrefabs.Length;
+            int prev = (currentGunIndex - 1 + weapons.Count) % weapons.Count;
             EquipGun(prev);
         }
         scrollInput = 0f;
@@ -368,29 +332,20 @@ public class PlayerController : MonoBehaviour
 
     void EquipGun(int index)
     {
-        if (index < 0 || index >= gunPrefabs.Length) return;
+        if (index < 0 || index >= weapons.Count) return;
 
-        // Destroy previous gun
-        if (currentGunObject != null)
-            Destroy(currentGunObject);
+        if (currentWeapon != null && currentWeapon.GunObject != null)
+            Destroy(currentWeapon.GunObject);
 
-        // Instantiate new gun
-        currentGunObject = Instantiate(gunPrefabs[index], gunHolder);
-        currentGunStats = currentGunObject.GetComponent<GunStats>();
+        var weapon = weapons[index];
+        weapon.GunObject = Instantiate(weapon.Prefab, gunHolder);
+        weapon.Stats = weapon.GunObject.GetComponent<GunStats>();
 
-        // Set stats from prefab
-        reloadTime = currentGunStats.reloadTime;
-        maxAmmo = currentGunStats.maxAmmo;
-        fireRange = currentGunStats.fireRange;
-        gunKnockbackAmount = currentGunStats.gunKnockbackAmount;
-
-        // For gun wobble, etc.
-        gunTransform = currentGunObject.transform;
+        gunTransform = weapon.GunObject.transform;
         gunInitialLocalPos = gunTransform.localPosition;
 
         currentGunIndex = index;
-        currentAmmo = magAmmoPerWeapon[currentGunIndex];
-        totalAmmo = totalAmmoPerWeapon[currentGunIndex];
+        currentWeapon = weapon;
     }
 
     IEnumerator ShowHitmarker(float duration)
@@ -403,42 +358,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public int CurrentAmmo
-    {
-        get { return currentAmmo; }
-    }
-
-    public int TotalAmmo
-    {
-        get { return totalAmmo; }
-    }
+    public int CurrentAmmo => currentWeapon != null ? currentWeapon.CurrentAmmo : 0;
+    public int TotalAmmo => currentWeapon != null ? currentWeapon.TotalAmmo : 0;
 
     public void ResetAllAmmo()
     {
-        for (int i = 0; i < gunPrefabs.Length; i++)
+        foreach (var weapon in weapons)
         {
-            var stats = gunPrefabs[i].GetComponent<GunStats>();
-            totalAmmoPerWeapon[i] = stats != null ? stats.startingTotalAmmo : 90;
-            magAmmoPerWeapon[i] = stats != null ? stats.maxAmmo : 10;
+            weapon.ResetAmmo();
         }
-        // Reset currently equipped gun's ammo as well
-        currentAmmo = magAmmoPerWeapon[currentGunIndex];
-        totalAmmo = totalAmmoPerWeapon[currentGunIndex];
     }
 
     public void AddAmmo(GameObject weaponPrefab, int amount)
     {
-        for (int i = 0; i < gunPrefabs.Length; i++)
+        foreach (var weapon in weapons)
         {
-            if (gunPrefabs[i] == weaponPrefab)
+            if (weapon.Prefab == weaponPrefab)
             {
-                var stats = gunPrefabs[i].GetComponent<GunStats>();
-                int maxTotal = stats != null ? stats.maxTotalAmmo : 9999;
-                totalAmmoPerWeapon[i] = Mathf.Min(totalAmmoPerWeapon[i] + amount, maxTotal);
-
-                // If this is the currently equipped weapon, update totalAmmo for UI
-                if (i == currentGunIndex)
-                    totalAmmo = totalAmmoPerWeapon[i];
+                int maxTotal = weapon.Stats != null ? weapon.Stats.maxTotalAmmo : 9999;
+                weapon.TotalAmmo = Mathf.Min(weapon.TotalAmmo + amount, maxTotal);
                 break;
             }
         }
