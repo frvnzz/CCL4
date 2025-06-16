@@ -19,8 +19,13 @@ public class AIController : MonoBehaviour
 
     [SerializeField] public Animator animator;
 
+    private Rigidbody[] ragdollBodies;
+    private Collider[] ragdollColliders;
+
     public bool isWalking;
     //private bool isAttacking;
+
+    
 
     void Start()
     {
@@ -30,6 +35,11 @@ public class AIController : MonoBehaviour
         agent.stoppingDistance = attackRange;
 
         animator = GetComponentInChildren<Animator>();
+
+        ragdollBodies = GetComponentsInChildren<Rigidbody>();
+        ragdollColliders = GetComponentsInChildren<Collider>();
+        SetRagdollActive(false); 
+
         // lineRenderer = gameObject.AddComponent<LineRenderer>();
         // lineRenderer.positionCount = 2;
         // lineRenderer.startWidth = 0.05f;
@@ -48,11 +58,11 @@ public class AIController : MonoBehaviour
         // Vector3 end = start + transform.forward * attackRange;
         // lineRenderer.SetPosition(0, start);
         // lineRenderer.SetPosition(1, end);
-       
-       // Check if agent is in attack range
-       
+
+        // Check if agent is in attack range
+
         bool inAttackRange = attackRange > agent.remainingDistance;
-         animator.SetBool("Attacking", inAttackRange);
+        animator.SetBool("Attacking", inAttackRange);
 
         //Debug.Log("In Attack Range: " + inAttackRange + ", Remaining Distance: " + agent.remainingDistance);
         if (!inAttackRange)
@@ -88,7 +98,7 @@ public class AIController : MonoBehaviour
             // Debug.Log("Raycast hit: " + hit.collider.name);
             if (hit.collider.CompareTag("Player"))
             {
-        
+
 
                 if (invulnerable) return;
 
@@ -104,9 +114,10 @@ public class AIController : MonoBehaviour
 
     public void DestroyEnemy()
     {
+        SetRagdollActive(true);
         NotifyDeath();
         GameManager.instance.AddScore(100); //Add score for defeating the enemy
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     IEnumerator DamageDelay()
@@ -114,7 +125,7 @@ public class AIController : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         invulnerable = false;
     }
-    
+
     public void TakeDamage(int amount)
     {
         health -= amount;
@@ -123,4 +134,28 @@ public class AIController : MonoBehaviour
             DestroyEnemy();
         }
     }
+
+    private void SetRagdollActive(bool active)
+    {
+        foreach (var rb in ragdollBodies)
+        {
+            if (rb != agent) // Don't affect the main Rigidbody
+                rb.isKinematic = !active;
+        }
+        foreach (var col in ragdollColliders)
+        {
+            if (col != GetComponent<Collider>()) // Don't affect the main Collider
+                col.enabled = active;
+        }
+        // Optionally disable Animator when ragdoll is active
+        animator.enabled = !active;
+        agent.enabled = !active;
+
+        // Disable the main CapsuleCollider when ragdoll is active
+        CapsuleCollider capsule = GetComponent<CapsuleCollider>();
+        if (capsule != null)
+        capsule.enabled = !active;
+        }
 }
+
+
