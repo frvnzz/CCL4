@@ -56,6 +56,8 @@ MonoBehaviour:
   fireRate: 15
   damage: 10
   muzzleFlash: {fileID: 4355154134223954216}
+  fireEventName: Play_shot_ak
+  reloadEventName: Play_reload_ak
 --- !u!1001 &329397963836872764
 PrefabInstance:
   m_ObjectHideFlags: 0
