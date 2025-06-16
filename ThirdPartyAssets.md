@@ -25,6 +25,6 @@ They are all free but you will need to download them manually from the [Unity As
 1. Add the Assets listed above to your Unity Account  
 2. Open the Project  
 3. Go to **Window > Package Manager** and click **My Assets**  
-4. Download and import each asset into the project. Ensure the assets are imported into the prepared folder (`Assets/ThirdPartyAssets`) to maintain organization.  
-   - **Note:** This folder structure is also important for ensuring the assets are properly excluded from version control. (see `UnityProject/.gitignore`)
+4. Download and import each asset into the project. Ensure the assets are imported into the prepared folder (`Assets/AssetStore`) to maintain organization.  
+   - **Note:** This folder structure is also important to properly exclude the assets from version control. (see `UnityProject/.gitignore`)
 5. With some of the assets, it may be necessary to use the **Render Pipeline Converter** to convert the assets to the project's render pipeline (e.g., URP or HDRP). To access the converter, go to **Window > Rendering > Render Pipeline Converter**.
