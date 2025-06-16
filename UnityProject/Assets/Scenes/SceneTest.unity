@@ -439,13 +439,13 @@ MonoBehaviour:
   waveText: {fileID: 1632577879}
   waves:
   - enemies:
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
+    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
     spawnDelay: 5
   - enemies:
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
+    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
     spawnDelay: 4
   - enemies:
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
+    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
     spawnDelay: 4
 --- !u!4 &200211457
 Transform:
@@ -1352,7 +1352,6 @@ MonoBehaviour:
   - {fileID: 1582251165867134133, guid: 3c5c1090a2a03834b8b801a3b3a1d758, type: 3}
   - {fileID: 1828191009}
   gunHolder: {fileID: 1710953579}
-  maxAmmo: 10
   hitmarker: {fileID: 1248127650}
   hitmarkerDuration: 0.15
 --- !u!4 &1462864380

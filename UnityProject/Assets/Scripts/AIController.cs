@@ -76,7 +76,7 @@ public class AIController : MonoBehaviour
             isWalking = false;
             animator.SetBool("Walking", isWalking);
         }
-        Debug.Log("Walking: " + isWalking);
+        // Debug.Log("Walking: " + isWalking);
 
         AttackPlayer(inAttackRange);
     }

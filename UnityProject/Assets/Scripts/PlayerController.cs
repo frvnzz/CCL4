@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float mouseSensitivity = 2f;
+    public float sprintSpeed = 10f;
+    private bool isSprinting = false;
 
     [Header("References")]
     public Transform cameraTransform;
@@ -96,6 +98,8 @@ public class PlayerController : MonoBehaviour
         actions["Attack"].canceled += OnFire;
         actions["Reload"].performed += OnReload;
         actions["ScrollWheel"].performed += OnScrollWheel;
+        actions["Sprint"].performed += OnSprint;
+        actions["Sprint"].canceled += OnSprint;
     }
 
     void OnDisable()
@@ -110,6 +114,8 @@ public class PlayerController : MonoBehaviour
         actions["Attack"].canceled -= OnFire;
         actions["Reload"].performed -= OnReload;
         actions["ScrollWheel"].performed -= OnScrollWheel;
+        actions["Sprint"].performed -= OnSprint;
+        actions["Sprint"].canceled -= OnSprint;
     }
 
     void Update()
@@ -133,7 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         // Debug movement
-        Debug.Log("Player Velocity: " + rb.linearVelocity);
+        // Debug.Log("Player Velocity: " + rb.linearVelocity);
         if (jumpPressed)
         {
             Jump();
@@ -145,7 +151,11 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        //Debug.Log("Move Input: " + moveInput);
+        if(moveInput != Vector2.zero)
+            AkUnitySoundEngine.SetRTPCValue("player_speed", moveSpeed, null);
+        else
+            AkUnitySoundEngine.SetRTPCValue("player_speed", 0f, null);
+
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -157,6 +167,16 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
             jumpPressed = true;
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        isSprinting = context.ReadValueAsButton();
+        if (isSprinting)
+            AkUnitySoundEngine.SetRTPCValue("player_speed", sprintSpeed, null);
+        else
+            AkUnitySoundEngine.SetRTPCValue("player_speed", moveSpeed, null);
+
     }
 
     public void OnFire(InputAction.CallbackContext context)
@@ -191,9 +211,9 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+        float speed = isSprinting ? sprintSpeed : moveSpeed;
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
-        Vector3 velocity = new Vector3(move.x * moveSpeed, rb.linearVelocity.y, move.z * moveSpeed);
-        //Debug.Log("Move Velocity: " + velocity);
+        Vector3 velocity = new Vector3(move.x * speed, rb.linearVelocity.y, move.z * speed);
         rb.linearVelocity = velocity;
     }
 
@@ -223,8 +243,18 @@ public class PlayerController : MonoBehaviour
         currentAmmo--;
         magAmmoPerWeapon[currentGunIndex] = currentAmmo; // Save mag ammo
 
+<<<<<<< Updated upstream
         if (currentGunStats.muzzleFlash != null)
             currentGunStats.muzzleFlash.Play();
+=======
+        if (currentWeapon.Stats.fireEventName != null)
+        {
+            AkUnitySoundEngine.PostEvent(currentWeapon.Stats.fireEventName, gameObject);
+        }
+
+        if (currentWeapon.Stats.muzzleFlash != null)
+            currentWeapon.Stats.muzzleFlash.Play();
+>>>>>>> Stashed changes
 
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         RaycastHit hit;
@@ -320,7 +350,16 @@ public class PlayerController : MonoBehaviour
         float elapsed = 0f;
         float moveDuration = reloadTime * 0.4f;
         Vector3 startPos = gunTransform.localPosition;
+<<<<<<< Updated upstream
         Vector3 downPos = gunInitialLocalPos + Vector3.down * 0.7f; // How far to move down
+=======
+        Vector3 downPos = gunInitialLocalPos + Vector3.down * 1f;
+
+        if (currentWeapon.Stats.reloadEventName != null)
+        {
+            AkUnitySoundEngine.PostEvent(currentWeapon.Stats.reloadEventName, gameObject);
+        }
+>>>>>>> Stashed changes
 
         // Move gun down
         while (elapsed < moveDuration)

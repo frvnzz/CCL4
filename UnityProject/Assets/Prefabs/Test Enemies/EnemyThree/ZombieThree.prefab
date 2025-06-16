@@ -132,6 +132,7 @@ MonoBehaviour:
   speed: 3.5
   health: 100
   animator: {fileID: 0}
+  despawnEnemyTime: 0
 --- !u!195 &9105694948605376516
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -189,13 +190,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 952733436682162648}
     m_Modifications:
+    - target: {fileID: -9063589543538667217, guid: 9de5aa5affc874edd8a43984205718bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4dcc661cad3842cba7e4edffcce6006, type: 2}
     - target: {fileID: -8679921383154817045, guid: 9de5aa5affc874edd8a43984205718bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9de5aa5affc874edd8a43984205718bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9de5aa5affc874edd8a43984205718bf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -239,13 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 09c7cf79158db4b4eafcf84fa205e297, type: 2}
     - target: {fileID: 5866666021909216657, guid: 9de5aa5affc874edd8a43984205718bf, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'head'\n\tTransform 'upper_leg_right'\n\tTransform
-        'foot_left'\n\tTransform 'upper_leg_left'\n\tTransform 'lower_leg_left'\n\tTransform
-        'lower_leg_right'\n\tTransform 'Upper_hip'\n\tTransform 'hip_right'\n\tTransform
-        'lower_arm_right'\n\tTransform 'chest_right'\n\tand more ...\n\tFrom animation
-        clip 'Armature|ArmatureAction'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

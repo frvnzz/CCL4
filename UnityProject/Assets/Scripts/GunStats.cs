@@ -21,4 +21,8 @@ public class GunStats : MonoBehaviour
     [Tooltip("Damage dealt by the weapon per shot.")]
     public int damage = 10;
     public ParticleSystem muzzleFlash;
+
+    [Header("Audio Settings")]
+    public string fireEventName = "Play_shot_pistol";
+    public string reloadEventName = "Play_reload_pistol";
 }
