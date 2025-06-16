@@ -210,6 +210,7 @@ public class PlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
+            AkUnitySoundEngine.PostEvent("Play_jump", gameObject);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
@@ -387,10 +388,13 @@ public class PlayerController : MonoBehaviour
         if (hitmarker != null)
         {
             hitmarker.SetActive(true);
+            AkUnitySoundEngine.PostEvent("Play_Hitmarker_Sound_Effect", gameObject);
             yield return new WaitForSeconds(duration);
             hitmarker.SetActive(false);
         }
     }
+
+
 
     public int CurrentAmmo => currentWeapon != null ? currentWeapon.CurrentAmmo : 0;
     public int TotalAmmo => currentWeapon != null ? currentWeapon.TotalAmmo : 0;

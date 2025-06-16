@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="123">
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\UnityProject_WwiseProject.wproj" DateLow="1750067120" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\UnityProject_WwiseProject.marcu.wsettings" DateLow="1750070640" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\UnityProject_WwiseProject.wproj" DateLow="1750101007" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\UnityProject_WwiseProject.marcu.wsettings" DateLow="1750100948" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\States\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1750088632" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1750101228" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Queries\Factory Queries.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Presets\Factory Spatial Audio.wwu" DateLow="1749482559" DateHigh="0"/>
@@ -18,7 +18,7 @@
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="1750089021" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Events\Default Work Unit.wwu" DateLow="1750088618" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Events\Default Work Unit.wwu" DateLow="1750101228" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Effects\Factory Effects.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
@@ -27,5 +27,5 @@
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1749482559" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1750089054" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\marcu\Documents\GitHub\CCL4\UnityProject\UnityProject_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1750101228" DateHigh="0"/>
 </ValidationCache>

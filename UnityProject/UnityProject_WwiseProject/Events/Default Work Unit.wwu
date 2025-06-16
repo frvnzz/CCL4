@@ -80,6 +80,42 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Hitmarker_Sound_Effect" ID="{2179C964-C257-4BFD-A1A2-E4757E419342}">
+					<ChildrenList>
+						<Action Name="" ID="{C5526E18-E31A-417B-B4CE-BECB2FD95A01}" ShortID="114092640">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Hitmarker Sound Effect" ID="{B4B4D4C9-40F5-4349-939D-949D3490AC37}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_enemy_growling" ID="{065FA652-0FB0-4F8E-8A3D-CD4DEB3C7337}">
+					<ChildrenList>
+						<Action Name="" ID="{02FF3AF5-F06C-4499-96C0-1906C758DB6A}" ShortID="871416806">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="enemy_growling" ID="{C148DE0C-ACD5-49BA-BE49-94AB5542EBC6}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_jump" ID="{05494487-9F12-4ABF-9C05-686EE9F53F59}">
+					<ChildrenList>
+						<Action Name="" ID="{51D36667-9681-4761-8490-C6865476998D}" ShortID="46457337">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="land_jump" ID="{E77EDFF8-F371-4BFD-92AE-DFAD61705240}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

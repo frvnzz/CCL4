@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a891c0ac6b06e84e86cead30ea710961
     GuidInternal: 
-    m_lastTime: -8584515182525242233
+    m_lastTime: -8584515056569324213
     List:
     - name: Default
       guid: cb951296a62aad4e8ab6cf97e786e51b
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 59801aecff0f8043b2e6277cf1d34f86
     GuidInternal: 
-    m_lastTime: -8584515182672884878
+    m_lastTime: -8584515056569214561
     List:
     - name: Play_enemy_growling
       guid: 20d2d3eaed7b89448ec8b9530ece0a72
@@ -130,6 +130,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Hitmarker_Sound_Effect
+      guid: 64c9792157c2fd4ba1a2e4757e419342
+      id: 2247968809
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 59801aecff0f8043b2e6277cf1d34f86
+      - ElementName: Play_Hitmarker_Sound_Effect
+        ObjectType: 3
+        guid: 64c9792157c2fd4ba1a2e4757e419342
+      Path: Events\Default Work Unit\Play_Hitmarker_Sound_Effect
+      maxAttenuation: 0
+      maxDuration: 0.055079363
+      minDuration: 0.055079363
+    - name: Play_jump
+      guid: 87444905129fbf4a9c05686ee9f53f59
+      id: 3689126666
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 59801aecff0f8043b2e6277cf1d34f86
+      - ElementName: Play_jump
+        ObjectType: 3
+        guid: 87444905129fbf4a9c05686ee9f53f59
+      Path: Events\Default Work Unit\Play_jump
+      maxAttenuation: 0
+      maxDuration: 0.34520385
+      minDuration: 0.28201696
     - name: Play_reload_ak
       guid: 85d04c1c0c39354a92d1261768fa5335
       id: 2719284876
@@ -215,6 +249,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.5576459
       minDuration: 0.52634764
+    - name: Stop_enemy_growling
+      guid: 52a65f06b00f8e4f8a3dcd4deb3c7337
+      id: 2808512190
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 59801aecff0f8043b2e6277cf1d34f86
+      - ElementName: Stop_enemy_growling
+        ObjectType: 3
+        guid: 52a65f06b00f8e4f8a3dcd4deb3c7337
+      Path: Events\Default Work Unit\Stop_enemy_growling
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -286,7 +337,7 @@ MonoBehaviour:
     m_lastTime: -8584521243261807523
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000d0000000e0000009300000094000000
+  ExpandedWaapiItemIds: 0500000006000000070000000d0000000e00000047000000480000009300000094000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
