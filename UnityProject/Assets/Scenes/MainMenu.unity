@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1e739ee059d4702a8bf43f31d2be57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10
   mouseSensitivity: 0.4
   respawnPoint: {fileID: 0}
 --- !u!4 &1212602795

@@ -25,6 +25,7 @@ MonoBehaviour:
     guid: 5eafc1515ceb5e41ab380fb936e669dc
     GuidInternal: 
     m_lastTime: -8584518936799237423
+    m_lastTime: -8584521243261777608
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -39,6 +40,7 @@ MonoBehaviour:
     guid: a3e50584da62f04c8d7cca87d3019a2d
     GuidInternal: 
     m_lastTime: -8584518936799346115
+    m_lastTime: -8584521243261957115
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -330,6 +332,8 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -343,6 +347,7 @@ MonoBehaviour:
     guid: 73f73d79bbc8c243a7abe49e686234cc
     GuidInternal: 
     m_lastTime: -8584514336293833363
+    m_lastTime: -8584515178635612116
     List:
     - name: player_speed
       guid: abd18bcaa08f284588989e215d61aec2
@@ -371,6 +376,7 @@ MonoBehaviour:
     guid: f35624ca0789ee4db84e98c684a052dc
     GuidInternal: 
     m_lastTime: -8584518936799284064
+    m_lastTime: -8584521243261827469
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -385,6 +391,7 @@ MonoBehaviour:
     guid: cb15bafb0bf3414781396848e1777995
     GuidInternal: 
     m_lastTime: -8584518936799274081
+    m_lastTime: -8584521243261817496
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -399,9 +406,10 @@ MonoBehaviour:
     guid: 10ff2ed9ac78f14e95ba363bdb97d47b
     GuidInternal: 
     m_lastTime: -8584518936799274081
+    m_lastTime: -8584521243261807523
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000d0000000e0000001200000013000000170000001800000019000000210000002200000047000000480000009300000094000000
+  ExpandedWaapiItemIds: 0500000006000000070000000d0000000e00000047000000480000009300000094000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
