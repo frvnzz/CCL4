@@ -39,7 +39,7 @@ public class AIController : MonoBehaviour
 
         ragdollBodies = GetComponentsInChildren<Rigidbody>();
         ragdollColliders = GetComponentsInChildren<Collider>();
-        SetRagdollActive(false); 
+        SetRagdollActive(false);
 
         // lineRenderer = gameObject.AddComponent<LineRenderer>();
         // lineRenderer.positionCount = 2;
@@ -156,8 +156,8 @@ public class AIController : MonoBehaviour
         // Disable the main CapsuleCollider when ragdoll is active
         CapsuleCollider capsule = GetComponent<CapsuleCollider>();
         if (capsule != null)
-        capsule.enabled = !active;
-        }
+            capsule.enabled = !active;
+    }
 }
 
 

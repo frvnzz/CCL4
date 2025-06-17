@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        if(moveInput != Vector2.zero)
+        if (moveInput != Vector2.zero)
             AkUnitySoundEngine.SetRTPCValue("player_speed", moveSpeed, null);
         else
             AkUnitySoundEngine.SetRTPCValue("player_speed", 0f, null);

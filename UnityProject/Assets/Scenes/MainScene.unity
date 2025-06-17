@@ -719,8 +719,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
   ammoText: {fileID: 0}
-  scoreText: {fileID: 0}
-  gameOverPanel: {fileID: 0}
   maxHealth: 100
   playerController: {fileID: 0}
 --- !u!120 &552939173

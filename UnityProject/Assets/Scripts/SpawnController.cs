@@ -44,7 +44,7 @@ public class SpawnController : MonoBehaviour
     IEnumerator HandleWave(int waveIndex)
     {
         Wave wave = waves[waveIndex];
-        waveText.text = $"Wave: {waveIndex + 1}";
+        waveText.text = $"{waveIndex + 1}";
 
         for (int i = 0; i < wave.enemies.Length; i++)
         {
