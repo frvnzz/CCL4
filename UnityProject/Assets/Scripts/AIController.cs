@@ -66,8 +66,7 @@ public class AIController : MonoBehaviour
 
         // Check if agent is in attack range
 
-        animator.SetBool("Attacking", isAttacking);
-
+        Debug.Log("Attacking" + isAttacking);
         //Debug.Log("In Attack Range: " + inAttackRange + ", Remaining Distance: " + agent.remainingDistance);
         if (!isAttacking)
         {
@@ -101,12 +100,16 @@ public class AIController : MonoBehaviour
             animator.SetBool("Attacking", isAttacking);
             StartCoroutine(DelayAttack());
         }
+        else
+        {
+            isAttacking = false;
+            animator.SetBool("Attacking", isAttacking);
+        }
     }
 
     public void AttackPlayer()
     {
-        if (isDead) return;
-
+        
         Vector3 direction = transform.forward;
         if (Physics.Raycast(transform.position, direction, out hit, attackRange))
         {
@@ -137,8 +140,8 @@ public class AIController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f); // Delay to simulate attack animation
         AttackPlayer();
-        isAttacking = false;
-        animator.SetBool("Attacking", isAttacking);
+        // isAttacking = false;
+        // animator.SetBool("Attacking", isAttacking);
     }
 
     IEnumerator DamageDelay()
@@ -179,4 +182,6 @@ public class AIController : MonoBehaviour
         if (capsule != null)
             capsule.enabled = !active;
     }
-}
+    }
+
+
