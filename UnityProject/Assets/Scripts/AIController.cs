@@ -118,6 +118,7 @@ public class AIController : MonoBehaviour
         SetRagdollActive(true);
         NotifyDeath();
         GameManager.instance.AddScore(100); //Add score for defeating the enemy
+        AkUnitySoundEngine.StopAll(gameObject);
         Destroy(gameObject, despawnEnemyTime);
     }
 
