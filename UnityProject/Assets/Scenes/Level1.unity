@@ -12244,8 +12244,11 @@ GameObject:
   - component: {fileID: 969117769}
   - component: {fileID: 969117768}
   - component: {fileID: 969117773}
+<<<<<<< HEAD
+=======
   - component: {fileID: 969117774}
   - component: {fileID: 969117775}
+>>>>>>> main
   m_Layer: 0
   m_Name: PlayerAudio
   m_TagString: Untagged
@@ -12424,6 +12427,8 @@ MonoBehaviour:
   attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
   LargeModePositions: []
   multiPositionArray: []
+<<<<<<< HEAD
+=======
 --- !u!114 &969117774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12492,6 +12497,7 @@ MonoBehaviour:
   attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
   LargeModePositions: []
   multiPositionArray: []
+>>>>>>> main
 --- !u!1001 &970830100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22118,6 +22124,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5372839472002766991, guid: 3ff9c98c0990fce468bb0d49a51b6461, type: 3}
   m_PrefabInstance: {fileID: 1727928269}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
 --- !u!1001 &1734989699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22180,6 +22188,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8076513646333382045, guid: 9c62eefaf2b00cd439ca0cc107144301, type: 3}
   m_PrefabInstance: {fileID: 1734989699}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> main
 --- !u!1001 &1741520584
 PrefabInstance:
   m_ObjectHideFlags: 0

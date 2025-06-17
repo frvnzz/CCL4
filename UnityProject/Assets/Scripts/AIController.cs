@@ -5,7 +5,7 @@ public class AIController : MonoBehaviour
 {
     [SerializeField] float attackRange = 2.0f;
     [SerializeField] int attackDamage = 10;
-    [SerializeField] float attackDelay = 2.0f;
+    [SerializeField] float attackDelay = 1.0f;
     [SerializeField] float speed = 3.5f;
     [SerializeField] int health = 100;
 
@@ -23,10 +23,13 @@ public class AIController : MonoBehaviour
     private Collider[] ragdollColliders;
 
     private bool isWalking;
+
+    private bool isAttacking;
     public float despawnEnemyTime;
     //private bool isAttacking;
+    RaycastHit hit;
 
-
+    private bool isDead = false;
 
     void Start()
     {
@@ -52,6 +55,7 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return;
         agent.SetDestination(destination.transform.position);
 
         // Visualize the ray constantly
@@ -62,11 +66,10 @@ public class AIController : MonoBehaviour
 
         // Check if agent is in attack range
 
-        bool inAttackRange = attackRange > agent.remainingDistance;
-        animator.SetBool("Attacking", inAttackRange);
+        animator.SetBool("Attacking", isAttacking);
 
         //Debug.Log("In Attack Range: " + inAttackRange + ", Remaining Distance: " + agent.remainingDistance);
-        if (!inAttackRange)
+        if (!isAttacking)
         {
             isWalking = true;
             animator.SetBool("Walking", isWalking);
@@ -78,7 +81,7 @@ public class AIController : MonoBehaviour
         }
         // Debug.Log("Walking: " + isWalking);
 
-        AttackPlayer(inAttackRange);
+        CheckAttackRange();
     }
 
     public void NotifyDeath()
@@ -87,34 +90,42 @@ public class AIController : MonoBehaviour
             OnEnemyDefeated.Invoke();
     }
 
-    public void AttackPlayer(bool inAttackRange)
+    private void CheckAttackRange()
     {
-        if (!inAttackRange) return; // Only attack if in range
-
-        RaycastHit hit;
+        if (isDead) return;
         Vector3 direction = transform.forward;
 
         if (Physics.Raycast(transform.position, direction, out hit, attackRange))
         {
+            isAttacking = true;
+            animator.SetBool("Attacking", isAttacking);
+            StartCoroutine(DelayAttack());
+        }
+    }
+
+    public void AttackPlayer()
+    {
+        if (isDead) return;
+        
+        Vector3 direction = transform.forward;
+        if (Physics.Raycast(transform.position, direction, out hit, attackRange))
+        {
             // Debug.Log("Raycast hit: " + hit.collider.name);
+            // if a player is within "attackRange", then take damage from the player
             if (hit.collider.CompareTag("Player"))
             {
-
-
                 if (invulnerable) return;
-
                 invulnerable = true;
-
-
+                StartCoroutine(DamageDelay());
+                Debug.Log("Attack Player is done");
                 GameManager.instance.TakeDamage(attackDamage);
-
-                StartCoroutine(DamageDelay()); // Delay to simulate attack animation
             }
         }
     }
 
     public void DestroyEnemy()
     {
+        isDead = true;
         SetRagdollActive(true);
         NotifyDeath();
         GameManager.instance.AddScore(100); //Add score for defeating the enemy
@@ -122,10 +133,20 @@ public class AIController : MonoBehaviour
         Destroy(gameObject, despawnEnemyTime);
     }
 
+    IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(2f); // Delay to simulate attack animation
+        AttackPlayer();
+        isAttacking = false;
+        animator.SetBool("Attacking", isAttacking);
+    }
+
     IEnumerator DamageDelay()
     {
         yield return new WaitForSeconds(attackDelay);
         invulnerable = false;
+        isAttacking = false;
+        animator.SetBool("Attacking", isAttacking);
     }
 
     public void TakeDamage(int amount)
@@ -158,6 +179,6 @@ public class AIController : MonoBehaviour
         if (capsule != null)
             capsule.enabled = !active;
     }
-}
+    }
 
 
