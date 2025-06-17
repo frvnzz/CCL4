@@ -116,6 +116,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_enemy_growling_01" ID="{CE2007CF-0E9D-4307-BB8F-7F771FCF6A68}">
+					<ChildrenList>
+						<Action Name="" ID="{9F967EC9-FE5D-4A13-B637-B44787B3B2D7}" ShortID="400632317">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="enemy_growling_01" ID="{F7884B56-87FE-4CC1-891A-035D010D5862}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

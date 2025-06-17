@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a891c0ac6b06e84e86cead30ea710961
     GuidInternal: 
-    m_lastTime: -8584515056569324213
+    m_lastTime: -8584514577700196987
     List:
     - name: Default
       guid: cb951296a62aad4e8ab6cf97e786e51b
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 59801aecff0f8043b2e6277cf1d34f86
     GuidInternal: 
-    m_lastTime: -8584515056569214561
+    m_lastTime: -8584514587960186351
     List:
     - name: Play_enemy_growling
       guid: 20d2d3eaed7b89448ec8b9530ece0a72
@@ -110,6 +110,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: 20d2d3eaed7b89448ec8b9530ece0a72
       Path: Events\Default Work Unit\Play_enemy_growling
+      maxAttenuation: 20
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_enemy_growling_01
+      guid: cf0720ce9d0e0743bb8f7f771fcf6a68
+      id: 3058844094
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 59801aecff0f8043b2e6277cf1d34f86
+      - ElementName: Play_enemy_growling_01
+        ObjectType: 3
+        guid: cf0720ce9d0e0743bb8f7f771fcf6a68
+      Path: Events\Default Work Unit\Play_enemy_growling_01
       maxAttenuation: 20
       maxDuration: 0
       minDuration: 0
@@ -278,7 +295,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 73f73d79bbc8c243a7abe49e686234cc
     GuidInternal: 
-    m_lastTime: -8584515178635612116
+    m_lastTime: -8584514600655031368
     List:
     - name: player_speed
       guid: abd18bcaa08f284588989e215d61aec2
