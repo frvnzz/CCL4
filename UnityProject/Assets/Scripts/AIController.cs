@@ -63,10 +63,6 @@ public class AIController : MonoBehaviour
         // Vector3 end = start + transform.forward * attackRange;
         // lineRenderer.SetPosition(0, start);
         // lineRenderer.SetPosition(1, end);
-
-        // Check if agent is in attack range
-
-        Debug.Log("Attacking" + isAttacking);
         //Debug.Log("In Attack Range: " + inAttackRange + ", Remaining Distance: " + agent.remainingDistance);
         if (!isAttacking)
         {
@@ -120,7 +116,6 @@ public class AIController : MonoBehaviour
                 if (invulnerable) return;
                 invulnerable = true;
                 StartCoroutine(DamageDelay());
-                Debug.Log("Attack Player is done");
                 GameManager.instance.TakeDamage(attackDamage);
             }
         }

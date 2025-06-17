@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 336256785652133998}
   - component: {fileID: 9105694948605376516}
   - component: {fileID: 2068826607654354542}
-  - component: {fileID: 6563204453747171204}
   m_Layer: 0
   m_Name: ZombieTwo
   m_TagString: Enemy
@@ -183,22 +182,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!111 &6563204453747171204
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7683509917742979104}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 4781951162920444690, guid: 438c8c0a348b244b4982e42414885bfd, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1001 &3330759184540752596
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     {
         currentHealth -= damage;
         healthText.text = "Health: " + currentHealth;
+        Debug.Log("Current Health: " + currentHealth);
         // HealthBar.SetHealth(currentHealth);
     }
 
