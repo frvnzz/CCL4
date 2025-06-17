@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text healthText;
     public TMP_Text ammoText;
-    //public TMP_Text scoreText;
-    //public GameObject gameOverPanel;
+    public TMP_Text scoreText;
+    public GameObject gameOverPanel;
     private int currentHealth;
     private int currentScore = 0;
 
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         // Update ammo and score text
         ammoText.text = playerController.CurrentAmmo + "/" + playerController.TotalAmmo;
-        //scoreText.text = "Score: " + currentScore;
+        scoreText.text = "Score: " + currentScore;
 
         if (currentHealth <= 0)
         {
@@ -56,7 +56,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //gameOverPanel.SetActive(true);
+        gameOverPanel.SetActive(true);
+        AkUnitySoundEngine.StopAll();
         Time.timeScale = 0f; // Pause the game
         playerController.enabled = false;
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
         currentHealth = maxHealth;
         healthText.text = "Health: " + currentHealth;
         // HealthBar.SetMaxHealth(maxHealth);
-        //gameOverPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
         Time.timeScale = 1f; // Resume the game
         playerController.enabled = true;
 

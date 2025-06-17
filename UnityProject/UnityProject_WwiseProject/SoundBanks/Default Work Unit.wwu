@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<SoundBank Name="Default" ID="{961295CB-2AA6-4EAD-8AB6-CF97E786E51B}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_enemy_growling_01" ID="{CE2007CF-0E9D-4307-BB8F-7F771FCF6A68}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_enemy_growling" ID="{EAD3D220-7BED-4489-8EC8-B9530ECE0A72}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shot_blaster" ID="{E8C9BBD4-9087-448F-9059-6368F39DDDC6}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_footsteps" ID="{D8A3D352-FD48-49B2-A5AA-30F59FCF2F87}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
@@ -14,7 +15,6 @@
 						<ObjectRef Name="Play_Hitmarker_Sound_Effect" ID="{2179C964-C257-4BFD-A1A2-E4757E419342}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shot_ak" ID="{06ED3D6F-EF54-4D0D-8B8A-461F6B6D9889}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shot_pistol" ID="{FF438858-5463-4EE8-8C8A-A16966BF1D9F}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Stop_enemy_growling" ID="{065FA652-0FB0-4F8E-8A3D-CD4DEB3C7337}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
