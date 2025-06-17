@@ -2,7 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -17,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int maxHealth = 100; // Maximum health of the player
     [SerializeField] public float mouseSensitivity = 2f; // Mouse sensitivity for player control
     private PlayerController playerController;
+    [SerializeField] private Transform respawnPoint;
 
     void Start()
     {
@@ -100,11 +100,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f; // Resume the game
         playerController.enabled = true;
 
+        // Reset score
+        currentScore = 0;
+
         // Reset player ammo
         playerController.ResetAllAmmo();
 
         //Reset position
-        playerController.transform.position = Vector3.zero; // Reset to a specific position, e.g., origin
+        playerController.transform.position = respawnPoint.position; // Reset to a specific position, e.g., origin
 
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
         Cursor.visible = false; // Hide the cursor
