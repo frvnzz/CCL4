@@ -232,11 +232,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isReloading || currentWeapon.CurrentAmmo <= 0) return;
         currentWeapon.CurrentAmmo--;
-
-<<<<<<< HEAD
-
-=======
->>>>>>> main
         if (currentWeapon.Stats.fireEventName != null)
         {
             AkUnitySoundEngine.PostEvent(currentWeapon.Stats.fireEventName, gameObject);
@@ -320,10 +315,6 @@ public class PlayerController : MonoBehaviour
         float elapsed = 0f;
         float moveDuration = currentWeapon.Stats.reloadTime * 0.4f;
         Vector3 startPos = gunTransform.localPosition;
-<<<<<<< HEAD
-
-=======
->>>>>>> main
         Vector3 downPos = gunInitialLocalPos + Vector3.down * 1f;
 
         if (currentWeapon.Stats.reloadEventName != null)

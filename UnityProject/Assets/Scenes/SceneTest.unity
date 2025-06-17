@@ -442,10 +442,12 @@ MonoBehaviour:
     - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
     spawnDelay: 5
   - enemies:
-    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
+    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
     spawnDelay: 4
   - enemies:
-    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
+    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
+    spawnDelay: 4
+  - enemies: []
     spawnDelay: 4
 --- !u!4 &200211457
 Transform:
@@ -1340,6 +1342,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 5
   mouseSensitivity: 1.08
+  sprintSpeed: 10
   cameraTransform: {fileID: 1733328154}
   hitEffectPrefab: {fileID: 3839971466004750073, guid: 21fbc3180e8620e4e8e8b1c68cd34909, type: 3}
   reloadText: {fileID: 0}
@@ -2125,6 +2128,8 @@ MonoBehaviour:
   fireRate: 15
   damage: 5
   muzzleFlash: {fileID: 0}
+  fireEventName: Play_shot_pistol
+  reloadEventName: Play_reload_pistol
 --- !u!1 &1948819252
 GameObject:
   m_ObjectHideFlags: 0
