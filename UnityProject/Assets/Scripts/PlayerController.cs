@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
     private Coroutine hitmarkerCoroutine;
     public float hitmarkerDuration = 0.2f;
 
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -243,10 +244,7 @@ public class PlayerController : MonoBehaviour
         currentAmmo--;
         magAmmoPerWeapon[currentGunIndex] = currentAmmo; // Save mag ammo
 
-<<<<<<< Updated upstream
-        if (currentGunStats.muzzleFlash != null)
-            currentGunStats.muzzleFlash.Play();
-=======
+
         if (currentWeapon.Stats.fireEventName != null)
         {
             AkUnitySoundEngine.PostEvent(currentWeapon.Stats.fireEventName, gameObject);
@@ -254,7 +252,6 @@ public class PlayerController : MonoBehaviour
 
         if (currentWeapon.Stats.muzzleFlash != null)
             currentWeapon.Stats.muzzleFlash.Play();
->>>>>>> Stashed changes
 
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         RaycastHit hit;
@@ -350,16 +347,13 @@ public class PlayerController : MonoBehaviour
         float elapsed = 0f;
         float moveDuration = reloadTime * 0.4f;
         Vector3 startPos = gunTransform.localPosition;
-<<<<<<< Updated upstream
-        Vector3 downPos = gunInitialLocalPos + Vector3.down * 0.7f; // How far to move down
-=======
+
         Vector3 downPos = gunInitialLocalPos + Vector3.down * 1f;
 
         if (currentWeapon.Stats.reloadEventName != null)
         {
             AkUnitySoundEngine.PostEvent(currentWeapon.Stats.reloadEventName, gameObject);
         }
->>>>>>> Stashed changes
 
         // Move gun down
         while (elapsed < moveDuration)
