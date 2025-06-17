@@ -1623,6 +1623,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 1482801727}
   ammoText: {fileID: 730143582}
+  scoreText: {fileID: 0}
+  gameOverPanel: {fileID: 0}
   maxHealth: 100
   playerController: {fileID: 1079954539}
 --- !u!4 &115177003
@@ -3291,7 +3293,7 @@ PrefabInstance:
       objectReference: {fileID: 1252484451}
     - target: {fileID: 4903499863522252554, guid: d052cb0355dbf442684b486d5c2a8b63, type: 3}
       propertyPath: moveSpeed
-      value: 2.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4903499863522252554, guid: d052cb0355dbf442684b486d5c2a8b63, type: 3}
       propertyPath: reloadText
@@ -9409,9 +9411,8 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
+    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
+    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
     spawnDelay: 5
   - enemies:
     - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
