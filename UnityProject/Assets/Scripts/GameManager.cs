@@ -6,10 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private TMP_Text healthText;
-    private TMP_Text ammoText;
-    private TMP_Text scoreText;
-    private GameObject gameOverPanel;
     private int currentHealth;
     private int currentScore = 0;
 
@@ -46,16 +42,14 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "Level1")
         {
-            healthText = GameObject.Find("Health Text")?.GetComponent<TMP_Text>();
-            ammoText = GameObject.Find("Ammo Text")?.GetComponent<TMP_Text>();
-            scoreText = GameObject.Find("Score Text")?.GetComponent<TMP_Text>();
-            gameOverPanel = GameObject.Find("GameOverScreen");
-
             weaponManager = FindFirstObjectByType<WeaponManager>();
             player = GameObject.FindGameObjectWithTag("Player");
 
             currentHealth = maxHealth;
-            healthText.text = "Health: " + currentHealth;
+            currentScore = 0;
+            HUD.instance.SetHealth(currentHealth);
+            HUD.instance.SetScore(currentScore);
+            HUD.instance.SetAmmo(weaponManager.CurrentAmmo, weaponManager.TotalAmmo);
         }
     }
 
@@ -63,9 +57,8 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Level1")
         {
-            // Update ammo and score text
-            ammoText.text = weaponManager.CurrentAmmo + "/" + weaponManager.TotalAmmo;
-            scoreText.text = "Score: " + currentScore;
+            HUD.instance.SetAmmo(weaponManager.CurrentAmmo, weaponManager.TotalAmmo);
+            HUD.instance.SetScore(currentScore);
 
             if (currentHealth <= 0)
             {
@@ -77,15 +70,14 @@ public class GameManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthText.text = "Health: " + currentHealth;
-        // HealthBar.SetHealth(currentHealth);
+        HUD.instance.SetHealth(currentHealth);
     }
 
     public void GameOver()
     {
-        gameOverPanel.SetActive(true);
+        HUD.instance.ShowGameOver(true);
         AkUnitySoundEngine.StopAll();
-        Time.timeScale = 0f; // Pause the game
+        // Time.timeScale = 0f; // Pause the game
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         Cursor.visible = true; // Make the cursor visible
     }
@@ -93,22 +85,17 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         currentHealth = maxHealth;
-        healthText.text = "Health: " + currentHealth;
-        // HealthBar.SetMaxHealth(maxHealth);
-        gameOverPanel.SetActive(false);
-        Time.timeScale = 1f; // Resume the game
+        HUD.instance.SetHealth(currentHealth);
+        HUD.instance.ShowGameOver(false);
+        // Time.timeScale = 1f; // Resume the game
 
         // Reset score
         currentScore = 0;
 
-        // Reset player ammo
-        weaponManager.ResetAllAmmo();
-
-        //Reset position
-        player.transform.position = respawnPosition; // Reset to a specific position, e.g., origin
-
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
         Cursor.visible = false; // Hide the cursor
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void AddScore(int score)
