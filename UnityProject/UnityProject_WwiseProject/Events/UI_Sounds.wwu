@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9AAD305B-7F7F-4C9E-9739-E500EEDEE5E3}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="UI_Sounds" ID="{9AAD305B-7F7F-4C9E-9739-E500EEDEE5E3}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_click_sound" ID="{DA49E1E4-3E5E-46C2-8EC8-F0556C6E9EC2}">
+					<ChildrenList>
+						<Action Name="" ID="{EF9627CD-6E62-46D4-93F0-74D61FA58B79}" ShortID="660759710">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="button" ID="{4F7F5847-A88A-4354-852A-A94FCCA4D485}" WorkUnitID="{F6EB1541-2A85-4BF9-BFF3-74C65B2755A3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_main_music" ID="{B9A91F5F-5F51-4D67-8EE5-1E385853A114}">
+					<ChildrenList>
+						<Action Name="" ID="{39BA17FA-981C-438A-AFF6-6E2126114A39}" ShortID="49525160">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="main_music" ID="{E179FF1E-EFAA-4026-B590-3B93410D6678}" WorkUnitID="{F6EB1541-2A85-4BF9-BFF3-74C65B2755A3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
