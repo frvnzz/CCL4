@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public int maxHealth = 100; // Maximum health of the player
     [SerializeField] public float mouseSensitivity = 2f; // Mouse sensitivity for player control
-    private PlayerController playerController;
+    private WeaponManager weaponManager;
+    private GameObject player;
     private Vector3 respawnPosition = new Vector3(377.55f, 62.84f, 601.57f);
 
     void Start()
@@ -50,7 +51,8 @@ public class GameManager : MonoBehaviour
             scoreText = GameObject.Find("Score Text")?.GetComponent<TMP_Text>();
             gameOverPanel = GameObject.Find("GameOverScreen");
 
-            playerController = FindFirstObjectByType<PlayerController>();
+            weaponManager = FindFirstObjectByType<WeaponManager>();
+            player = GameObject.FindGameObjectWithTag("Player");
 
             currentHealth = maxHealth;
             healthText.text = "Health: " + currentHealth;
@@ -61,10 +63,8 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Level1")
         {
-           
-
             // Update ammo and score text
-            ammoText.text = playerController.CurrentAmmo + "/" + playerController.TotalAmmo;
+            ammoText.text = weaponManager.CurrentAmmo + "/" + weaponManager.TotalAmmo;
             scoreText.text = "Score: " + currentScore;
 
             if (currentHealth <= 0)
@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         AkUnitySoundEngine.StopAll();
         Time.timeScale = 0f; // Pause the game
-        playerController.enabled = false;
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         Cursor.visible = true; // Make the cursor visible
     }
@@ -98,16 +97,15 @@ public class GameManager : MonoBehaviour
         // HealthBar.SetMaxHealth(maxHealth);
         gameOverPanel.SetActive(false);
         Time.timeScale = 1f; // Resume the game
-        playerController.enabled = true;
 
         // Reset score
         currentScore = 0;
 
         // Reset player ammo
-        playerController.ResetAllAmmo();
+        weaponManager.ResetAllAmmo();
 
         //Reset position
-        playerController.transform.position = respawnPosition; // Reset to a specific position, e.g., origin
+        player.transform.position = respawnPosition; // Reset to a specific position, e.g., origin
 
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
         Cursor.visible = false; // Hide the cursor
