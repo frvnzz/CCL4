@@ -106,7 +106,7 @@ public class AIController : MonoBehaviour
     public void AttackPlayer()
     {
         if (isDead) return;
-        
+
         Vector3 direction = transform.forward;
         if (Physics.Raycast(transform.position, direction, out hit, attackRange))
         {
@@ -179,6 +179,4 @@ public class AIController : MonoBehaviour
         if (capsule != null)
             capsule.enabled = !active;
     }
-    }
-
-
+}

@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnScrollWheel(InputAction.CallbackContext context)
     {
+        Debug.Log("ScrollWheel: " + context.ReadValue<Vector2>().y + "; Sprinting: " + isSprinting);
         scrollInput = context.ReadValue<Vector2>().y;
     }
 
