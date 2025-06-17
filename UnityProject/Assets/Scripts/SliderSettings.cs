@@ -5,21 +5,20 @@ using UnityEngine.UI;
 public class SliderSettings : MonoBehaviour
 {
     public Slider sensitivitySlider;
-    public float senseX = 400;
-    public float senseY = 400;
+    public float sense = 2f;
 
     void Start()
     {
-        sensitivitySlider.value = senseX;
-        sensitivitySlider.value = senseY;
+        sense = GameManager.instance.mouseSensitivity;
+        sensitivitySlider.value = sense;
 
         sensitivitySlider.onValueChanged.AddListener(OnSensitivityChanged);
     }
 
     void OnSensitivityChanged(float newValue)
     {
-        senseX = newValue;
-        senseY = newValue;
+        sense = newValue;
+        GameManager.instance.mouseSensitivity = sense;
     }
 }
 

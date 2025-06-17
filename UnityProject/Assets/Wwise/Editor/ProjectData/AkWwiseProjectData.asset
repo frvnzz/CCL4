@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a891c0ac6b06e84e86cead30ea710961
     GuidInternal: 
-    m_lastTime: -8584514577700196987
+    m_lastTime: -8584514427714069504
     List:
     - name: Default
       guid: cb951296a62aad4e8ab6cf97e786e51b
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 59801aecff0f8043b2e6277cf1d34f86
     GuidInternal: 
-    m_lastTime: -8584514587960186351
+    m_lastTime: -8584514427714119366
     List:
     - name: Play_enemy_growling
       guid: 20d2d3eaed7b89448ec8b9530ece0a72
@@ -127,9 +127,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: cf0720ce9d0e0743bb8f7f771fcf6a68
       Path: Events\Default Work Unit\Play_enemy_growling_01
-      maxAttenuation: 20
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_footsteps
       guid: 52d3a3d848fdb249a5aa30f59fcf2f87
       id: 3854155799

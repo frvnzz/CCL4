@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
-    public float mouseSensitivity = 2f;
+    private float mouseSensitivity = GameManager.instance.mouseSensitivity;
     public float sprintSpeed = 10f;
     private bool isSprinting = false;
 
@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
             }
             EquipGun(0);
         }
+
+        mouseSensitivity = GameManager.instance.mouseSensitivity;
     }
 
     void OnEnable()
@@ -265,6 +267,11 @@ public class PlayerController : MonoBehaviour
                     StopCoroutine(hitmarkerCoroutine);
                 hitmarkerCoroutine = StartCoroutine(ShowHitmarker(hitmarkerDuration));
             }
+
+            else if(hit.collider.CompareTag("Explosive"))
+            {
+                hit.collider.GetComponent<Explosive>()?.Explode();
+            }
         }
         else
         {
@@ -309,8 +316,9 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        if (isReloading || currentWeapon.CurrentAmmo == currentWeapon.Stats.maxAmmo) yield break;
+        if (isReloading || currentWeapon.CurrentAmmo == currentWeapon.Stats.maxAmmo || currentWeapon.TotalAmmo <= 0) yield break;
         isReloading = true;
+        reloadText.SetActive(currentWeapon.CurrentAmmo <= 0);
 
         float elapsed = 0f;
         float moveDuration = currentWeapon.Stats.reloadTime * 0.4f;
@@ -381,6 +389,8 @@ public class PlayerController : MonoBehaviour
 
         currentGunIndex = index;
         currentWeapon = weapon;
+
+        reloadText.SetActive(currentWeapon.CurrentAmmo <= 0);
     }
 
     IEnumerator ShowHitmarker(float duration)

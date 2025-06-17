@@ -1,22 +1,22 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    // public HealthBar HealthBar;
-
-    public TMP_Text healthText;
-    public TMP_Text ammoText;
-    public TMP_Text scoreText;
-    public GameObject gameOverPanel;
+    private TMP_Text healthText;
+    private TMP_Text ammoText;
+    private TMP_Text scoreText;
+    private GameObject gameOverPanel;
     private int currentHealth;
     private int currentScore = 0;
 
     [SerializeField] public int maxHealth = 100; // Maximum health of the player
-    [SerializeField] public PlayerController playerController;
+    [SerializeField] public float mouseSensitivity = 2f; // Mouse sensitivity for player control
+    private PlayerController playerController;
 
     void Start()
     {
@@ -29,21 +29,48 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(instance);
+    }
 
-        currentHealth = maxHealth;
-        healthText.text = "Health: " + currentHealth;
-        // HealthBar.SetMaxHealth(maxHealth);
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Level1")
+        {
+            healthText = GameObject.Find("Health Text")?.GetComponent<TMP_Text>();
+            ammoText = GameObject.Find("Ammo Text")?.GetComponent<TMP_Text>();
+            scoreText = GameObject.Find("Score Text")?.GetComponent<TMP_Text>();
+            gameOverPanel = GameObject.Find("Game Over Screen");
+
+            playerController = FindFirstObjectByType<PlayerController>();
+
+            currentHealth = maxHealth;
+            healthText.text = "Health: " + currentHealth;
+        }
     }
 
     void Update()
     {
-        // Update ammo and score text
-        ammoText.text = playerController.CurrentAmmo + "/" + playerController.TotalAmmo;
-        scoreText.text = "Score: " + currentScore;
-
-        if (currentHealth <= 0)
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
-            GameOver();
+           
+
+            // Update ammo and score text
+            ammoText.text = playerController.CurrentAmmo + "/" + playerController.TotalAmmo;
+            scoreText.text = "Score: " + currentScore;
+
+            if (currentHealth <= 0)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -87,5 +114,10 @@ public class GameManager : MonoBehaviour
     {
         currentScore += score;
         //scoreText.text = "Score: " + currentScore;
+    }
+
+    public void SetMouseSensitivity(float sensitivity)
+    {
+        mouseSensitivity = sensitivity;
     }
 }
