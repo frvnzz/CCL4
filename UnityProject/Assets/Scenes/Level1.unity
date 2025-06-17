@@ -1601,7 +1601,6 @@ GameObject:
   m_Component:
   - component: {fileID: 115177003}
   - component: {fileID: 115177002}
-  - component: {fileID: 115177004}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1623,6 +1622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   mouseSensitivity: 2
+  respawnPoint: {fileID: 0}
 --- !u!4 &115177003
 Transform:
   m_ObjectHideFlags: 0
@@ -1638,31 +1638,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &115177004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115177001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b60ddf86b476d4be98f1c2609ece0a61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1bb11b5e6cf8b0f4a84288d952ccd63b, type: 2}
-  decodeBank: 0
-  overrideLoadSetting: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  bankNameInternal: 
-  valueGuidInternal: 
 --- !u!1001 &115741346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2035,17 +2010,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8427067253600929112, guid: 258a05c3254defe4794197d1e93716c6, type: 3}
   m_PrefabInstance: {fileID: 134783813}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &137314695 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 120336862533838802, guid: 08bb95816dea2442c978514493326a8b, type: 3}
-  m_PrefabInstance: {fileID: 1252484449}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &139552615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4733,6 +4697,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 409248, guid: da8e893168526164591f81d60c0e06b1, type: 3}
   m_PrefabInstance: {fileID: 325951707}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &328750560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328750562}
+  - component: {fileID: 328750561}
+  m_Layer: 0
+  m_Name: Soundbank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &328750561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328750560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60ddf86b476d4be98f1c2609ece0a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1bb11b5e6cf8b0f4a84288d952ccd63b, type: 2}
+  decodeBank: 0
+  overrideLoadSetting: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!4 &328750562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328750560}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 547.4122, y: 161.46707, z: 517.9113}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &328940235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11649,11 +11670,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901625698}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &915453658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5745430418010469299, guid: 08bb95816dea2442c978514493326a8b, type: 3}
-  m_PrefabInstance: {fileID: 1252484449}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &918492302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26862,3 +26878,4 @@ SceneRoots:
   - {fileID: 508789884}
   - {fileID: 330944548}
   - {fileID: 1243778584}
+  - {fileID: 328750562}

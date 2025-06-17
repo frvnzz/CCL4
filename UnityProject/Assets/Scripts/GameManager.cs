@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int maxHealth = 100; // Maximum health of the player
     [SerializeField] public float mouseSensitivity = 2f; // Mouse sensitivity for player control
     private PlayerController playerController;
-    [SerializeField] private Transform respawnPoint;
+    private Vector3 respawnPosition = new Vector3(377.55f, 62.84f, 601.57f);
 
     void Start()
     {
@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Level1")
         {
             healthText = GameObject.Find("Health Text")?.GetComponent<TMP_Text>();
             ammoText = GameObject.Find("Ammo Text")?.GetComponent<TMP_Text>();
             scoreText = GameObject.Find("Score Text")?.GetComponent<TMP_Text>();
-            gameOverPanel = GameObject.Find("Game Over Screen");
+            gameOverPanel = GameObject.Find("GameOverScreen");
 
             playerController = FindFirstObjectByType<PlayerController>();
 
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         playerController.ResetAllAmmo();
 
         //Reset position
-        playerController.transform.position = respawnPoint.position; // Reset to a specific position, e.g., origin
+        playerController.transform.position = respawnPosition; // Reset to a specific position, e.g., origin
 
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
         Cursor.visible = false; // Hide the cursor
