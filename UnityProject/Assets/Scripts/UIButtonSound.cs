@@ -10,9 +10,9 @@ public class UIButtonSound : MonoBehaviour
     public void onClick()
     {
         if (soundSource != null)
-            AkSoundEngine.PostEvent("Play_click_sound", soundSource);
+            AkUnitySoundEngine.PostEvent("Play_click_sound", soundSource);
         else
-            AkSoundEngine.PostEvent("Play_click_sound", gameObject);
+            AkUnitySoundEngine.PostEvent("Play_click_sound", gameObject);
 
         StartCoroutine(DoAfterSound());
     }

@@ -11,6 +11,18 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public int maxHealth = 100; // Maximum health of the player
     [SerializeField] public float mouseSensitivity = 2f; // Mouse sensitivity for player control
+    [SerializeField] private float masterVolume = 100f;
+    public float MasterVolume
+    {
+        get => masterVolume;
+        set
+        {
+            masterVolume = value;
+            AkUnitySoundEngine.SetRTPCValue("MasterVolume", masterVolume);
+            PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+        }
+    }
+
     private WeaponManager weaponManager;
     private GameObject player;
     private Vector3 respawnPosition = new Vector3(377.55f, 62.84f, 601.57f);
@@ -26,6 +38,16 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(instance);
+
+        // Load persisted volume if available
+        if (PlayerPrefs.HasKey("MasterVolume"))
+        {
+            MasterVolume = PlayerPrefs.GetFloat("MasterVolume");
+        }
+        else
+        {
+            MasterVolume = masterVolume;
+        }
     }
 
     void OnEnable()
