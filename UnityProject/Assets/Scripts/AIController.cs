@@ -105,7 +105,6 @@ public class AIController : MonoBehaviour
 
     public void AttackPlayer()
     {
-        
         Vector3 direction = transform.forward;
         if (Physics.Raycast(transform.position, direction, out hit, attackRange))
         {
@@ -124,6 +123,8 @@ public class AIController : MonoBehaviour
     public void DestroyEnemy()
     {
         isDead = true;
+        AkUnitySoundEngine.StopAll(gameObject);
+        AkUnitySoundEngine.PostEvent("Play_enemy_death", gameObject);
         SetRagdollActive(true);
         NotifyDeath();
         GameManager.instance.AddScore(100); //Add score for defeating the enemy
@@ -141,6 +142,7 @@ public class AIController : MonoBehaviour
 
     IEnumerator DamageDelay()
     {
+        AkUnitySoundEngine.PostEvent("Play_enemy_attack", gameObject);
         yield return new WaitForSeconds(attackDelay);
         invulnerable = false;
         isAttacking = false;
