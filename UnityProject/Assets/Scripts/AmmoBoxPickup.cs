@@ -9,7 +9,7 @@ public class AmmoBoxPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        Debug.Log($"Ammo box picked up by {other.name}.");
         if (other.CompareTag("Player"))
         {
             WeaponManager weaponManager = other.GetComponentInParent<WeaponManager>();

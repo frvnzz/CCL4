@@ -20,14 +20,13 @@ public class SpawnController : MonoBehaviour
 
     private int infiniteWaveCount = 0; // Counter for infinite waves
     private int enemiesAlive = 0; // Number of enemies currently alive
-
-
-    [Header("Spawn Settings")]
+    
+    [Header("Crate Spawn Settings")]
     [SerializeField] Transform[] crateSpawnPoints;
 
     [Header("Crate Settings")]
-    [SerializeField] GameObject[] cratePrefabs;
     [SerializeField] int cratesPerWave; // Set how many crates you want per wave
+    [SerializeField] GameObject[] cratePrefabs;
 
     void Start()
     {
@@ -103,15 +102,15 @@ public class SpawnController : MonoBehaviour
     void SpawnRandomCrate()
     {
         // Select a random spawn point
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Transform crateSpawnPoint = crateSpawnPoints[Random.Range(0, crateSpawnPoints.Length)];
 
         // Select a random crate prefab
         GameObject cratePrefab = cratePrefabs[Random.Range(0, cratePrefabs.Length)];
 
         // Instantiate the crate at the selected spawn point
-        Instantiate(cratePrefab, spawnPoint.position, Quaternion.identity);
+        Instantiate(cratePrefab, crateSpawnPoint.position, Quaternion.identity);
     }
-    
+
         IEnumerator AnimateWaveText(int waveNumber)
     {
         RectTransform rect = waveText.GetComponent<RectTransform>();
