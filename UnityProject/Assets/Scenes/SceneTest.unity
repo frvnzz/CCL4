@@ -439,16 +439,8 @@ MonoBehaviour:
   waveText: {fileID: 1632577879}
   waves:
   - enemies:
-    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
-    spawnDelay: 5
-  - enemies:
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    spawnDelay: 4
-  - enemies:
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    spawnDelay: 4
-  - enemies: []
-    spawnDelay: 4
+    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
+    spawnDelay: 0
 --- !u!4 &200211457
 Transform:
   m_ObjectHideFlags: 0
@@ -972,10 +964,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1e739ee059d4702a8bf43f31d2be57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 963296160}
-  ammoText: {fileID: 2007219465}
+  healthText: {fileID: 0}
+  ammoText: {fileID: 0}
   maxHealth: 100
-  playerController: {fileID: 1462864379}
+  playerController: {fileID: 0}
 --- !u!4 &985024944
 Transform:
   m_ObjectHideFlags: 0
@@ -1341,7 +1333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
-  mouseSensitivity: 1.08
+  mouseSensitivity: 2
   sprintSpeed: 10
   cameraTransform: {fileID: 1733328154}
   hitEffectPrefab: {fileID: 3839971466004750073, guid: 21fbc3180e8620e4e8e8b1c68cd34909, type: 3}
