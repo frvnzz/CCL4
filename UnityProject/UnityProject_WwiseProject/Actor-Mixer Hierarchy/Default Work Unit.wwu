@@ -1547,6 +1547,47 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Sound Name="ZombieWave" ID="{850C2CEF-BEAD-4E9B-9C5F-EA604DF8EE7D}" ShortID="29629624">
+					<PropertyList>
+						<Property Name="IsStreamingEnabled" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{AC940161-2476-4F47-95D1-9BB5752CB0F5}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02D883E-1F98-41EC-833D-735C6934C91A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8405E5A3-62DA-4CF0-8D7C-CA87D3019A2D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="ZombieWave" ID="{8916B35B-217E-4DCF-ACE9-8DE9C303E32C}">
+							<Language>SFX</Language>
+							<AudioFile>ZombieWave.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="362041641"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="ZombieWave" ID="{8916B35B-217E-4DCF-ACE9-8DE9C303E32C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

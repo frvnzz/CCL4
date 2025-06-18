@@ -7,6 +7,7 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="main_music" ID="{E179FF1E-EFAA-4026-B590-3B93410D6678}" WorkUnitID="{F6EB1541-2A85-4BF9-BFF3-74C65B2755A3}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_enemy_growling_01" ID="{CE2007CF-0E9D-4307-BB8F-7F771FCF6A68}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ZombieWave" ID="{029AD5E0-13D2-4477-BE8E-D2B408F561BB}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_enemy_growling" ID="{EAD3D220-7BED-4489-8EC8-B9530ECE0A72}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shot_blaster" ID="{E8C9BBD4-9087-448F-9059-6368F39DDDC6}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_click_sound" ID="{DA49E1E4-3E5E-46C2-8EC8-F0556C6E9EC2}" WorkUnitID="{9AAD305B-7F7F-4C9E-9739-E500EEDEE5E3}" Origin="Manual" Filter="7"/>

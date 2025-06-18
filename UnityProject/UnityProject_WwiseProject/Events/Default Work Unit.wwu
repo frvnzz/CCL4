@@ -207,6 +207,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_ZombieWave" ID="{029AD5E0-13D2-4477-BE8E-D2B408F561BB}">
+					<ChildrenList>
+						<Action Name="" ID="{864853B3-9DE9-4755-98E5-AD77B2D3ABE9}" ShortID="24589826">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ZombieWave" ID="{850C2CEF-BEAD-4E9B-9C5F-EA604DF8EE7D}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

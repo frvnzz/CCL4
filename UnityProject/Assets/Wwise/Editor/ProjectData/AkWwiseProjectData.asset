@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a891c0ac6b06e84e86cead30ea710961
     GuidInternal: 
-    m_lastTime: -8584513446418130231
+    m_lastTime: -8584513438703608370
     List:
     - name: Default
       guid: cb951296a62aad4e8ab6cf97e786e51b
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 59801aecff0f8043b2e6277cf1d34f86
     GuidInternal: 
-    m_lastTime: -8584513446417831093
+    m_lastTime: -8584513438867912379
     List:
     - name: Play_barrel_explosion
       guid: 3fea4faa6f27ab4baa639b42059263d7
@@ -212,7 +212,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: ccf8f12f30fa3c48a368df3430b679d5
       Path: Events\Default Work Unit\Play_footsteps_enemies
-      maxAttenuation: 0
+      maxAttenuation: 7
       maxDuration: 0
       minDuration: 0
     - name: Play_hit_sound
@@ -368,6 +368,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.5576459
       minDuration: 0.52634764
+    - name: Play_ZombieWave
+      guid: e0d59a02d2137744be8ed2b408f561bb
+      id: 1047976919
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 59801aecff0f8043b2e6277cf1d34f86
+      - ElementName: Play_ZombieWave
+        ObjectType: 3
+        guid: e0d59a02d2137744be8ed2b408f561bb
+      Path: Events\Default Work Unit\Play_ZombieWave
+      maxAttenuation: 0
+      maxDuration: 6.080354
+      minDuration: 6.080354
     - name: Stop_enemy_growling
       guid: 52a65f06b00f8e4f8a3dcd4deb3c7337
       id: 2808512190
