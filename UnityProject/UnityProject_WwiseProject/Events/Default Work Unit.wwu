@@ -160,6 +160,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_lake_ambience" ID="{8B8EE519-8373-4B9D-B398-165A2742AAE3}">
+					<ChildrenList>
+						<Action Name="" ID="{D9D67692-737E-4C26-8762-C0C413DCEF8E}" ShortID="208468579">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lake_ambience" ID="{E0861D51-7186-4840-B147-64ECEB626CCB}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
