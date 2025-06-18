@@ -4,10 +4,10 @@ Course: CCL4 SS 2025 (5 ECTS, 3 SWS)
 CCL Group: 8
 
 Names: 
-* Selina Hacker - cc231072
-* Alikhan Manat - cc231008
-* Marcus Fichtinger - cc231016
-* Franz-Aurel Huber - cc231014
+- Selina Hacker - cc231072
+- Alikhan Manat - cc231008
+- Marcus Fichtinger - cc231016
+- Franz-Aurel Huber - cc231014
 
 Your Project Name: 
 
@@ -18,16 +18,26 @@ Your Project Name:
 
 ### Key Features and Implementation Detail
 
-- 3D Modeling
+- 3D Modeling:
+  1. Three different zombies that are fully textured and rigged. They all have an idle animation, a walking animation and an attack animation. (see [`UnityProject/Assets/Prefabs/Zombies`](../../UnityProject/Assets/Prefabs/Zombies))
+  2. An explosive barrel model (see [`UnityProject/Assets/Models/explosive.fbx`](../../UnityProject/Models/explosive.fbx))
+  3. An AK-47 model (see [`UnityProject/Assets/Models/ak.fbx`](../../UnityProject/Models/ak.fbx))
+  4. A pistol model (see [`UnityProject/Assets/Models/pistol.fbx`](../../UnityProject/Models/pistol.fbx))
+  5. A blaster model (see [`UnityProject/Assets/Models/blaster.fbx`](../../UnityProject/Models/blaster.fbx))
+  6. A car model (see [`UnityProject/Assets/Models/car.fbx`](../../UnityProject/Models/car.fbx))
+  7. A house model (see [`UnityProject/Assets/Models/house.fbx`](../../UnityProject/Models/house.fbx))
+
+All other models that were not created by us are documented in [`ThirdPartyAssets.md`](../../ThirdPartyAssets.md)
+
+- Game Audio:
   1. Item
   2. Item, and so forth
-- Game Audio
+
+- Unity Coding:
   1. Item
   2. Item, and so forth
-- Unity Coding
-  1. Item
-  2. Item, and so forth
-- C# & Theory of CG&A
+
+- C# & Theory of CG&A:
   1. Item
   2. Item, and so forth
 
