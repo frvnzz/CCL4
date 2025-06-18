@@ -36,7 +36,7 @@ public class AIController : MonoBehaviour
         destination = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = speed;
-        agent.stoppingDistance = attackRange;
+        //agent.stoppingDistance = attackRange;
 
         animator = GetComponentInChildren<Animator>();
 
@@ -77,6 +77,8 @@ public class AIController : MonoBehaviour
         // Debug.Log("Walking: " + isWalking);
 
         CheckAttackRange();
+
+        ContinueMovement();
     }
 
     public void NotifyDeath()
@@ -87,11 +89,14 @@ public class AIController : MonoBehaviour
 
     private void CheckAttackRange()
     {
+
         if (isDead) return;
         Vector3 direction = transform.forward;
+        
 
         if (Physics.Raycast(transform.position, direction, out hit, attackRange))
         {
+            agent.stoppingDistance = attackRange;
             isAttacking = true;
             animator.SetBool("Attacking", isAttacking);
             StartCoroutine(DelayAttack());
@@ -105,8 +110,10 @@ public class AIController : MonoBehaviour
 
     public void AttackPlayer()
     {
-        
+
         Vector3 direction = transform.forward;
+        
+
         if (Physics.Raycast(transform.position, direction, out hit, attackRange))
         {
             // Debug.Log("Raycast hit: " + hit.collider.name);
@@ -116,7 +123,8 @@ public class AIController : MonoBehaviour
                 if (invulnerable) return;
                 invulnerable = true;
                 StartCoroutine(DamageDelay());
-                GameManager.instance.TakeDamage(attackDamage);
+                if (isAttacking) GameManager.instance.TakeDamage(attackDamage);
+                Debug.Log("Player hit! Dealing damage: " + attackDamage);
             }
         }
     }
@@ -176,6 +184,23 @@ public class AIController : MonoBehaviour
         CapsuleCollider capsule = GetComponent<CapsuleCollider>();
         if (capsule != null)
             capsule.enabled = !active;
+    }
+
+    private void ContinueMovement()
+    {
+        if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
+    {
+        Vector3 direction = (destination.transform.position - transform.position).normalized;
+        direction.y = 0; // Only rotate on the Y axis
+        
+        if (direction != Vector3.zero)
+        {
+            // Smoothly rotate towards the player
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            float rotationSpeed = 5f; // You can adjust this value for faster/slower rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+    }
     }
     }
 

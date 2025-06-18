@@ -9560,7 +9560,7 @@ MonoBehaviour:
   - {fileID: 523508655}
   spawnInterval: 5
   waveCooldown: 5
-  initialEnemyCount: 5
+  initialEnemyCount: 1
   enemyScalingFactor: 1.2
   maxEnemiesAlive: 50
   waveText: {fileID: 1331627920}
