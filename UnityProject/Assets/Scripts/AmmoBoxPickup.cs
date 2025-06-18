@@ -12,8 +12,8 @@ public class AmmoBoxPickup : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            PlayerController player = other.GetComponentInParent<PlayerController>();
-            player.AddAmmo(weaponPrefab, ammoAmount);
+            WeaponManager weaponManager = other.GetComponentInParent<WeaponManager>();
+            weaponManager.AddAmmo(weaponPrefab, ammoAmount);
             Destroy(gameObject); // Remove the ammo box after pickup
         }
     }
