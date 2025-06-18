@@ -21,6 +21,14 @@ public class SpawnController : MonoBehaviour
     private int infiniteWaveCount = 0; // Counter for infinite waves
     private int enemiesAlive = 0; // Number of enemies currently alive
 
+
+    [Header("Spawn Settings")]
+    [SerializeField] Transform[] crateSpawnPoints;
+
+    [Header("Crate Settings")]
+    [SerializeField] GameObject[] cratePrefabs;
+    [SerializeField] int cratesPerWave; // Set how many crates you want per wave
+
     void Start()
     {
         StartCoroutine(HandleInfiniteWaves()); // Start infinite wave spawning
@@ -41,6 +49,11 @@ public class SpawnController : MonoBehaviour
 
             infiniteWaveCount++;
             waveText.text = $"{infiniteWaveCount}";
+
+            for (int i = 0; i < cratesPerWave; i++)
+            {
+                SpawnRandomCrate();
+            }
 
             // Calculate the number of enemies for the current wave based on scaling
             int enemyCount = Mathf.RoundToInt(initialEnemyCount * Mathf.Pow(enemyScalingFactor, infiniteWaveCount - 1));
@@ -80,5 +93,17 @@ public class SpawnController : MonoBehaviour
     {
         // Decrease the count of alive enemies when one is defeated
         enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
+    }
+
+    void SpawnRandomCrate()
+    {
+        // Select a random spawn point
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+        // Select a random crate prefab
+        GameObject cratePrefab = cratePrefabs[Random.Range(0, cratePrefabs.Length)];
+
+        // Instantiate the crate at the selected spawn point
+        Instantiate(cratePrefab, spawnPoint.position, Quaternion.identity);
     }
 }
