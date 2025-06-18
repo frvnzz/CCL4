@@ -6,18 +6,17 @@
 				<SoundBank Name="Default" ID="{961295CB-2AA6-4EAD-8AB6-CF97E786E51B}">
 					<ObjectInclusionList>
 						<ObjectRef Name="main_music" ID="{E179FF1E-EFAA-4026-B590-3B93410D6678}" WorkUnitID="{F6EB1541-2A85-4BF9-BFF3-74C65B2755A3}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_player_hit" ID="{A138EF96-2C6B-4037-848A-46728FA4D073}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_enemy_growling_01" ID="{CE2007CF-0E9D-4307-BB8F-7F771FCF6A68}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_enemy_growling" ID="{EAD3D220-7BED-4489-8EC8-B9530ECE0A72}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shot_blaster" ID="{E8C9BBD4-9087-448F-9059-6368F39DDDC6}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_click_sound" ID="{DA49E1E4-3E5E-46C2-8EC8-F0556C6E9EC2}" WorkUnitID="{9AAD305B-7F7F-4C9E-9739-E500EEDEE5E3}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_enemy_death" ID="{922EA076-EC55-4819-A891-054F9A7576C7}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_enemy_attack" ID="{2F0C8EA3-74B0-492C-AB25-897E34B68D39}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_enemy_death" ID="{4D824998-5A10-4784-8CEF-8CF18210933B}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_enemy_attack" ID="{06505C58-9BF6-496D-BDA1-7F72CB095AC3}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_footsteps" ID="{D8A3D352-FD48-49B2-A5AA-30F59FCF2F87}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_reload_ak" ID="{1C4CD085-390C-4A35-92D1-261768FA5335}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_jump" ID="{05494487-9F12-4ABF-9C05-686EE9F53F59}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_reload_pistol" ID="{3B631FCA-ECFF-4B17-BD7B-54596026097E}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_barrel_explosion" ID="{CC8916BA-2DCD-4B5C-B7A4-56A1509E08F9}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_barrel_explosion" ID="{AA4FEA3F-276F-4BAB-AA63-9B42059263D7}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hitmarker_Sound_Effect" ID="{2179C964-C257-4BFD-A1A2-E4757E419342}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shot_ak" ID="{06ED3D6F-EF54-4D0D-8B8A-461F6B6D9889}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_main_music" ID="{B9A91F5F-5F51-4D67-8EE5-1E385853A114}" WorkUnitID="{9AAD305B-7F7F-4C9E-9739-E500EEDEE5E3}" Origin="Manual" Filter="7"/>
