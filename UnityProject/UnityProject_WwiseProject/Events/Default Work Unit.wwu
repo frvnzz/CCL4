@@ -171,6 +171,42 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_hit_sound" ID="{D6D49352-FA08-417A-AF93-182A62FAAD15}">
+					<ChildrenList>
+						<Action Name="" ID="{ECA183CA-83CE-4ADE-8818-4DE68D609D5D}" ShortID="888027686">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="hit_sound" ID="{09DA370E-E28E-4AEB-AED3-37EC603C84DC}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_footsteps_enemies" ID="{2FF1F8CC-FA30-483C-A368-DF3430B679D5}">
+					<ChildrenList>
+						<Action Name="" ID="{9D2F8087-A0BA-4DED-9393-E6297884313A}" ShortID="615761747">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="footsteps_enemies" ID="{29AEB9AD-06AA-43AE-B869-A2A2EBBE6AC4}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_footsteps_enemies" ID="{3B953AD0-A957-49D9-98A8-A9C6F72F1DB4}">
+					<ChildrenList>
+						<Action Name="" ID="{23C29418-1AB2-4FC8-ABD2-A09F78593ED5}" ShortID="422781414">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="footsteps_enemies" ID="{29AEB9AD-06AA-43AE-B869-A2A2EBBE6AC4}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
