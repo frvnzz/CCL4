@@ -46,9 +46,14 @@ public class SpawnController : MonoBehaviour
 
             // Cooldown between waves
             yield return new WaitForSeconds(waveCooldown);
+            //Play the wave start sound
 
             infiniteWaveCount++;
-            waveText.text = $"{infiniteWaveCount}";
+            if (infiniteWaveCount > 1)
+            {
+                AkUnitySoundEngine.PostEvent("Play_ZombieWave", gameObject);
+                yield return StartCoroutine(AnimateWaveText(infiniteWaveCount));
+            }
 
             for (int i = 0; i < cratesPerWave; i++)
             {
@@ -105,5 +110,121 @@ public class SpawnController : MonoBehaviour
 
         // Instantiate the crate at the selected spawn point
         Instantiate(cratePrefab, spawnPoint.position, Quaternion.identity);
+    }
+    
+        IEnumerator AnimateWaveText(int waveNumber)
+    {
+        RectTransform rect = waveText.GetComponent<RectTransform>();
+
+        // Store original position and anchors
+        Vector2 originalAnchorMin = rect.anchorMin;
+        Vector2 originalAnchorMax = rect.anchorMax;
+        Vector2 originalAnchoredPosition = rect.anchoredPosition;
+
+        // Store original color and alpha
+        Color originalColor = waveText.color;
+        float originalAlpha = originalColor.a;
+        Color whiteColor = new Color(1f, 1f, 1f, originalAlpha);
+
+        // Move to center top (anchor at top center, position zero) and fade color to white
+        Vector2 topCenterAnchor = new Vector2(0.5f, 1f);
+        Vector2 topCenterPosition = Vector2.zero;
+        float moveDuration = 0.5f;
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / moveDuration;
+            rect.anchorMin = Vector2.Lerp(originalAnchorMin, topCenterAnchor, t);
+            rect.anchorMax = Vector2.Lerp(originalAnchorMax, topCenterAnchor, t);
+            rect.anchoredPosition = Vector2.Lerp(originalAnchoredPosition, topCenterPosition, t);
+
+            // Fade color from original to white (alpha stays original)
+            Color lerpedColor = Color.Lerp(originalColor, whiteColor, t);
+            lerpedColor.a = originalAlpha;
+            waveText.color = lerpedColor;
+            yield return null;
+        }
+        rect.anchorMin = topCenterAnchor;
+        rect.anchorMax = topCenterAnchor;
+        rect.anchoredPosition = topCenterPosition;
+        waveText.color = whiteColor;
+
+        waveText.text = $"{waveNumber}";
+        waveText.gameObject.SetActive(true);
+
+        // Smooth flash 3 times (only alpha fades, color stays white)
+        int flashCount = 3;
+        float fadeDuration = 0.2f;
+        float visibleDuration = 0.3f;
+
+        for (int i = 0; i < flashCount; i++)
+        {
+            // Fade in alpha
+            t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime / fadeDuration;
+                float currentAlpha = Mathf.Lerp(0f, originalAlpha, t);
+                waveText.color = new Color(1f, 1f, 1f, currentAlpha);
+                yield return null;
+            }
+            waveText.color = new Color(1f, 1f, 1f, originalAlpha);
+            yield return new WaitForSeconds(visibleDuration);
+
+            // Fade out alpha
+            t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime / fadeDuration;
+                float currentAlpha = Mathf.Lerp(originalAlpha, 0f, t);
+                waveText.color = new Color(1f, 1f, 1f, currentAlpha);
+                yield return null;
+            }
+            waveText.color = new Color(1f, 1f, 1f, 0f);
+        }
+
+        // Final fade in alpha and hold (color stays white)
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / fadeDuration;
+            float currentAlpha = Mathf.Lerp(0f, originalAlpha, t);
+            waveText.color = new Color(1f, 1f, 1f, currentAlpha);
+            yield return null;
+        }
+        waveText.color = new Color(1f, 1f, 1f, originalAlpha);
+        yield return new WaitForSeconds(0.5f);
+
+        // Animate back to original position (keep color white, alpha original)
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / moveDuration;
+            rect.anchorMin = Vector2.Lerp(topCenterAnchor, originalAnchorMin, t);
+            rect.anchorMax = Vector2.Lerp(topCenterAnchor, originalAnchorMax, t);
+            rect.anchoredPosition = Vector2.Lerp(topCenterPosition, originalAnchoredPosition, t);
+            waveText.color = new Color(1f, 1f, 1f, originalAlpha);
+            yield return null;
+        }
+        rect.anchorMin = originalAnchorMin;
+        rect.anchorMax = originalAnchorMax;
+        rect.anchoredPosition = originalAnchoredPosition;
+        waveText.color = new Color(1f, 1f, 1f, originalAlpha);
+
+        // Fade color from white back to original color (alpha stays original)
+        t = 0f;
+        float colorFadeDuration = 0.5f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / colorFadeDuration;
+            Color lerped = Color.Lerp(whiteColor, originalColor, t);
+            lerped.a = originalAlpha;
+            waveText.color = lerped;
+            yield return null;
+        }
+        Color reset = originalColor;
+        reset.a = originalAlpha;
+        waveText.color = reset;
     }
 }

@@ -1,6 +1,6 @@
 # CCL4 - Group 8 Portfolio
 
-Not final
+The final project report can be found [here](/eCampusSubmission/Documentation/ProjectReport.md).
 
 ### How to Run the Program (User Guideline)
 1. **Download and Install Unity 6**  
@@ -20,7 +20,7 @@ Not final
 
 4. **Import Third-Party Assets**  
    This project uses third-party assets that are not included in the repository due to license restrictions.
-   Please refer to [ThirdPartyAssets.md](./ThirdPartyAssets.md) for a list of the required assets and download instructions. 
+   Please refer to [`ThirdPartyAssets.md`](./ThirdPartyAssets.md) for a list of the required assets and download instructions. 
 
 5. **Run the Scene**  
 

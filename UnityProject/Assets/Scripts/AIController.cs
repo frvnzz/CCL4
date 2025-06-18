@@ -25,6 +25,7 @@ public class AIController : MonoBehaviour
     private bool isWalking;
 
     private bool isAttacking;
+    private bool wasWalking = false;
     public float despawnEnemyTime;
     //private bool isAttacking;
     RaycastHit hit;
@@ -68,13 +69,20 @@ public class AIController : MonoBehaviour
         {
             isWalking = true;
             animator.SetBool("Walking", isWalking);
+
+            if (!wasWalking)
+            {
+                AkUnitySoundEngine.PostEvent("Play_footsteps_enemies", gameObject);
+            }
         }
         else
         {
             isWalking = false;
             animator.SetBool("Walking", isWalking);
+            AkUnitySoundEngine.PostEvent("Stop_footsteps_enemies", gameObject);
         }
         // Debug.Log("Walking: " + isWalking);
+        wasWalking = isWalking;
 
         CheckAttackRange();
 
@@ -92,7 +100,7 @@ public class AIController : MonoBehaviour
 
         if (isDead) return;
         Vector3 direction = transform.forward;
-        
+
 
         if (Physics.Raycast(transform.position, direction, out hit, attackRange))
         {
@@ -112,7 +120,7 @@ public class AIController : MonoBehaviour
     {
 
         Vector3 direction = transform.forward;
-        
+
 
         if (Physics.Raycast(transform.position, direction, out hit, attackRange))
         {
@@ -132,10 +140,11 @@ public class AIController : MonoBehaviour
     public void DestroyEnemy()
     {
         isDead = true;
+        AkUnitySoundEngine.StopAll(gameObject);
+        AkUnitySoundEngine.PostEvent("Play_enemy_death", gameObject);
         SetRagdollActive(true);
         NotifyDeath();
         GameManager.instance.AddScore(100); //Add score for defeating the enemy
-        AkUnitySoundEngine.StopAll(gameObject);
         Destroy(gameObject, despawnEnemyTime);
     }
 
@@ -149,6 +158,7 @@ public class AIController : MonoBehaviour
 
     IEnumerator DamageDelay()
     {
+        AkUnitySoundEngine.PostEvent("Play_enemy_attack", gameObject);
         yield return new WaitForSeconds(attackDelay);
         invulnerable = false;
         isAttacking = false;
@@ -189,19 +199,19 @@ public class AIController : MonoBehaviour
     private void ContinueMovement()
     {
         if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
-    {
-        Vector3 direction = (destination.transform.position - transform.position).normalized;
-        direction.y = 0; // Only rotate on the Y axis
-        
-        if (direction != Vector3.zero)
         {
-            // Smoothly rotate towards the player
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            float rotationSpeed = 5f; // You can adjust this value for faster/slower rotation
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            Vector3 direction = (destination.transform.position - transform.position).normalized;
+            direction.y = 0; // Only rotate on the Y axis
+
+            if (direction != Vector3.zero)
+            {
+                // Smoothly rotate towards the player
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                float rotationSpeed = 5f; // You can adjust this value for faster/slower rotation
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            }
         }
     }
-    }
-    }
+}
 
 

@@ -127,6 +127,97 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_barrel_explosion" ID="{AA4FEA3F-276F-4BAB-AA63-9B42059263D7}">
+					<ChildrenList>
+						<Action Name="" ID="{4C2DB0F6-AAA7-4BF7-8D6F-CBF1CA63E7F2}" ShortID="690945863">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="barrel_explosion" ID="{0A8C67E1-F926-4C85-A60A-0AB90A2A9B7E}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_enemy_attack" ID="{06505C58-9BF6-496D-BDA1-7F72CB095AC3}">
+					<ChildrenList>
+						<Action Name="" ID="{5ED520EF-3935-4E97-8607-F4604BA87E13}" ShortID="680753892">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="enemy_attack" ID="{B80B25EC-9D98-4927-9ED6-D18A0699AAEB}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_enemy_death" ID="{4D824998-5A10-4784-8CEF-8CF18210933B}">
+					<ChildrenList>
+						<Action Name="" ID="{D3A55229-53E9-45E2-A7DA-37AC94157148}" ShortID="629786597">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="enemy_death" ID="{A8928C40-5E8E-4241-ADDC-46205C1F1F74}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_lake_ambience" ID="{8B8EE519-8373-4B9D-B398-165A2742AAE3}">
+					<ChildrenList>
+						<Action Name="" ID="{D9D67692-737E-4C26-8762-C0C413DCEF8E}" ShortID="208468579">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lake_ambience" ID="{E0861D51-7186-4840-B147-64ECEB626CCB}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_hit_sound" ID="{D6D49352-FA08-417A-AF93-182A62FAAD15}">
+					<ChildrenList>
+						<Action Name="" ID="{ECA183CA-83CE-4ADE-8818-4DE68D609D5D}" ShortID="888027686">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="hit_sound" ID="{09DA370E-E28E-4AEB-AED3-37EC603C84DC}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_footsteps_enemies" ID="{2FF1F8CC-FA30-483C-A368-DF3430B679D5}">
+					<ChildrenList>
+						<Action Name="" ID="{9D2F8087-A0BA-4DED-9393-E6297884313A}" ShortID="615761747">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="footsteps_enemies" ID="{29AEB9AD-06AA-43AE-B869-A2A2EBBE6AC4}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_footsteps_enemies" ID="{3B953AD0-A957-49D9-98A8-A9C6F72F1DB4}">
+					<ChildrenList>
+						<Action Name="" ID="{23C29418-1AB2-4FC8-ABD2-A09F78593ED5}" ShortID="422781414">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="footsteps_enemies" ID="{29AEB9AD-06AA-43AE-B869-A2A2EBBE6AC4}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ZombieWave" ID="{029AD5E0-13D2-4477-BE8E-D2B408F561BB}">
+					<ChildrenList>
+						<Action Name="" ID="{864853B3-9DE9-4755-98E5-AD77B2D3ABE9}" ShortID="24589826">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ZombieWave" ID="{850C2CEF-BEAD-4E9B-9C5F-EA604DF8EE7D}" WorkUnitID="{8FB0C6C2-4E45-4D3B-94E1-6C7505788FBC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

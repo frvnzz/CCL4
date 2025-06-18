@@ -24,6 +24,7 @@ public class Explosive : MonoBehaviour
 
         ParticleSystem explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         explosion.Play();
+        AkUnitySoundEngine.PostEvent("Play_barrel_explosion", gameObject);
         // Destroy(explosion.gameObject, explosion.main.duration);
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
