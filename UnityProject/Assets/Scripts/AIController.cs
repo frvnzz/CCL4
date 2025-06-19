@@ -102,7 +102,7 @@ public class AIController : MonoBehaviour
         Vector3 direction = transform.forward;
 
 
-        if (Physics.Raycast(transform.position, direction, out hit, attackRange))
+        if (Physics.Raycast(transform.position, direction, out hit, attackRange) && hit.collider.CompareTag("Player"))
         {
             agent.stoppingDistance = attackRange;
             isAttacking = true;
