@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
     {
         currentHealth -= damage;
         HUD.instance.SetHealth(currentHealth);
+        HUD.instance.ShowDamageVignette();
     }
 
     public void GameOver()
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score;
-        //scoreText.text = "Score: " + currentScore;
+        HUD.instance.ShowScorePopup(score);
     }
 
     public void SetMouseSensitivity(float sensitivity)

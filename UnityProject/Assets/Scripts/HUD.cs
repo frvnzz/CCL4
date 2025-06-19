@@ -10,9 +10,16 @@ public class HUD : MonoBehaviour
     public TMP_Text ammoText;
     public TMP_Text scoreText;
     public GameObject gameOverPanel;
+    public ScorePopup ScorePopupPrefab;
+    public RectTransform scoreTextRect;
+    public TMP_Text finalScoreText;
+
+    private DamageVignette damageVignette;
 
     void Awake()
     {
+        damageVignette = FindFirstObjectByType<DamageVignette>();
+
         if (instance == null)
             instance = this;
         else
@@ -21,7 +28,7 @@ public class HUD : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        healthText.text = "Health: " + health;
+        healthText.text = " " + health;
     }
 
     public void SetAmmo(int current, int total)
@@ -31,11 +38,31 @@ public class HUD : MonoBehaviour
 
     public void SetScore(int score)
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = " " + score;
     }
 
     public void ShowGameOver(bool show)
     {
         gameOverPanel.SetActive(show);
+        finalScoreText.text = "Final Score: " + scoreText.text;
+    }
+
+    public void ShowDamageVignette()
+    {
+        if (damageVignette != null)
+        {
+            damageVignette.ShowVignette();
+        }
+    }
+
+    public void ShowScorePopup(int score)
+    {
+        if (ScorePopupPrefab != null && scoreTextRect != null)
+        {
+            var popup = Instantiate(ScorePopupPrefab, scoreTextRect.parent);
+            popup.transform.SetAsLastSibling(); // Ensure it's on top
+            popup.transform.position = scoreTextRect.position;
+            popup.Init(score);
+        }
     }
 }
