@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Explosive
       objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: cb0d8078f64134d4b924786298a1f55a, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cdc027e2a07049fdb46ef237836eded, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: cb0d8078f64134d4b924786298a1f55a, type: 3}
