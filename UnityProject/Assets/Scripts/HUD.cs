@@ -13,6 +13,7 @@ public class HUD : MonoBehaviour
     public ScorePopup ScorePopupPrefab;
     public RectTransform scoreTextRect;
     public TMP_Text finalScoreText;
+    public GameObject pauseMenu;
 
     private DamageVignette damageVignette;
 
@@ -64,5 +65,10 @@ public class HUD : MonoBehaviour
             popup.transform.position = scoreTextRect.position;
             popup.Init(score);
         }
+    }
+
+    public void ShowPauseMenu(bool show)
+    {
+        pauseMenu.SetActive(show);
     }
 }

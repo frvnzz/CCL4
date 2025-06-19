@@ -23,6 +23,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool limitEnemySpawns = false;
+
+    public bool LimitEnemySpawns
+    {
+        get => limitEnemySpawns;
+        set
+        {
+            limitEnemySpawns = value;
+        }
+    }
+
     private WeaponManager weaponManager;
     private GameObject player;
     private Vector3 respawnPosition = new Vector3(377.55f, 62.84f, 601.57f);

@@ -20,7 +20,7 @@ public class SpawnController : MonoBehaviour
 
     private int infiniteWaveCount = 0; // Counter for infinite waves
     private int enemiesAlive = 0; // Number of enemies currently alive
-    
+
     [Header("Crate Spawn Settings")]
     [SerializeField] Transform[] crateSpawnPoints;
 
@@ -30,6 +30,12 @@ public class SpawnController : MonoBehaviour
 
     void Start()
     {
+        if (GameManager.instance.LimitEnemySpawns)
+        {
+            maxEnemiesAlive = 1000;
+            enemyScalingFactor = 1.5f;
+        }
+
         StartCoroutine(HandleInfiniteWaves()); // Start infinite wave spawning
     }
 
@@ -111,7 +117,7 @@ public class SpawnController : MonoBehaviour
         Instantiate(cratePrefab, crateSpawnPoint.position, Quaternion.identity);
     }
 
-        IEnumerator AnimateWaveText(int waveNumber)
+    IEnumerator AnimateWaveText(int waveNumber)
     {
         RectTransform rect = waveText.GetComponent<RectTransform>();
 

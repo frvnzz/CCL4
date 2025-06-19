@@ -23,8 +23,6 @@ public class PlayerCamera : MonoBehaviour
         if (cameraTransform == null)
             cameraTransform = GetComponentInChildren<Camera>().transform;
 
-        mouseSensitivity = GameManager.instance.mouseSensitivity;
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -46,6 +44,7 @@ public class PlayerCamera : MonoBehaviour
     void Update()
     {
         HandleCamera();
+        mouseSensitivity = GameManager.instance.mouseSensitivity;
     }
 
     //==================INPUT SYSTEM CALLBACKS=================================
