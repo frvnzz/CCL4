@@ -19,7 +19,7 @@ You can download the latest release (v1.0) [here](https://github.com/frvnzz/CCL4
    [here](https://github.com/frvnzz/CCL4/archive/refs/heads/main.zip).  
 
 3. **Open the Project**  
-   Open Unity Hub, add the cloned repository folder, and open the project.  
+   Open Unity Hub, add the folder `UnityProject` from the cloned repository, and open the project.  
 
 4. **Import Third-Party Assets**  
    This project uses third-party assets that are not included in the repository due to license restrictions.
