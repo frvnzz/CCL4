@@ -14,7 +14,7 @@ Your Project Name:
 #
 
 ### A Short Summary to Promote the Project (What are the Background and the Motivation of the project?): 
-(Approx. 100 words)
+The main inspiration of our project was a game called [Call of Mini: Zombies](https://call-of-mini-zombies.de.uptodown.com/android) that we used to play when we were kids. The game is no longer compatible or available in the App Store or on Google Play and the servers have been shut down. We wanted to create a simple third-person, arcade-like wave-shooter in a similar cartoony and blocky artstyle.
 
 ### Key Features and Implementation Detail
 
@@ -30,12 +30,17 @@ Your Project Name:
 All other models that were not created by us are documented in [`ThirdPartyAssets.md`](../../ThirdPartyAssets.md)
 
 - Game Audio:
-  1. Item
-  2. Item, and so forth
+  1. Enemy sounds  
+Include a variety of sound files for zombie actions, like attack sounds, growling, footsteps and death sounds.
+  2. Player sounds  
+Include sounds like jumping, shooting with different weapons, reloading and footsteps.
+  3. UI sounds  
+Include sounds for button clicks, hitmarkers, background music and a sound effect to indicate a completed wave.
+  4.  Environment sounds  
+Include all other sounds like explosions and water.
 
 - Unity Coding:
-  1. Item
-  2. Item, and so forth
+  1. Enemy AI that handles chasing and attacking the player ([`AIController.cs`](../../UnityProject/Assets/Scripts/AIController.cs))
 
 - C# & Theory of CG&A:
   1. Item
@@ -52,12 +57,11 @@ All other models that were not created by us are documented in [`ThirdPartyAsset
 ### Learned Knowledge from the Project
 
 #### Major Challenges and Solutions:
-(List down and explain the major challenges. Did you solve it? How? Please explain in detail.)
-1. Item
-2. Item, and so forth
+1. AI/NavMesh integration
+2. Building the game without any errors
+3. Version control with Wwise and Unity using Git
 
 #### Minor Challenges and Solutions:
-(List down and explain the minor challenges. Did you solve it? How? Please explain in detail.)
 1. Item
 2. Item, and so forth
 
