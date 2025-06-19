@@ -97,10 +97,8 @@ public class AIController : MonoBehaviour
 
     private void CheckAttackRange()
     {
-
         if (isDead) return;
         Vector3 direction = transform.forward;
-
 
         if (Physics.Raycast(transform.position, direction, out hit, attackRange) && hit.collider.CompareTag("Player"))
         {
@@ -214,5 +212,3 @@ public class AIController : MonoBehaviour
         }
     }
 }
-
-

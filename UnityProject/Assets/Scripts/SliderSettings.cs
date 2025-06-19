@@ -21,4 +21,3 @@ public class SliderSettings : MonoBehaviour
         GameManager.instance.mouseSensitivity = sense;
     }
 }
-

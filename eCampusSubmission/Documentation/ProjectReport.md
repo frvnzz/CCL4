@@ -28,6 +28,7 @@ The main inspiration of our project was a game called [Call of Mini: Zombies](ht
   7. A house model (see [`UnityProject/Assets/Models/house.fbx`](../../UnityProject/Assets/Models/house.fbx))
 
 All other assets that were not created by us have been documented in [`ThirdPartyAssets.md`](../../ThirdPartyAssets.md)
+All fonts we used are documented in [`FontSources.md`](../../UnityProject/Assets/Fonts/FontSources.md)
 
 - Game Audio:
   1. Enemy sounds  

@@ -56,7 +56,8 @@ The test scene shows a player capsule that is followed by the enemy capsule that
 
 #### Environment:
 - Explosive barrels scattered around the level for damage to multiple enemies
+- Ammo box spawns
 
 ### System infrastructure
 #### Class diagram (NOT FINISHED, still needs to be consolidated - still a lot of test scripts that will not be used in the final version):
-![Class diagram (NOT FINISHED, still needs to be consolidated)](./img/include.png)
+![Class diagram (NOT FINISHED, still needs to be consolidated)](./img/include.svg)

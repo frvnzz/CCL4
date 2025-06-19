@@ -66,8 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: a891c0ac6b06e84e86cead30ea710961
     GuidInternal: 
-    m_lastTime: -8584512612904867926
-    m_lastTime: -8584512859327848781
+    m_lastTime: -8584512606960438502
     List:
     - name: Default
       guid: cb951296a62aad4e8ab6cf97e786e51b
@@ -95,8 +94,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 59801aecff0f8043b2e6277cf1d34f86
     GuidInternal: 
-    m_lastTime: -8584512612905202124
-    m_lastTime: -8584512859327923792
+    m_lastTime: -8584512606960445639
     List:
     - name: Play_barrel_explosion
       guid: 3fea4faa6f27ab4baa639b42059263d7
@@ -298,10 +296,10 @@ MonoBehaviour:
       - ElementName: Play_pickup_item
         ObjectType: 3
         guid: 9c812c81010bf74cbf8cfb76940f701e
-      Path: Events\Default Work Unit\Play_pickup_item
+      Path: Events/Default Work Unit/Play_pickup_item
       maxAttenuation: 0
-      maxDuration: 0.33698413
-      minDuration: 0.33698413
+      maxDuration: -1
+      minDuration: -1
     - name: Play_reload_ak
       guid: 85d04c1c0c39354a92d1261768fa5335
       id: 2719284876
