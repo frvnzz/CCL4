@@ -54,7 +54,7 @@ MonoBehaviour:
   gunKnockbackAmount: 0.1
   isAutomatic: 1
   fireRate: 5
-  damage: 20
+  damage: 50
   muzzleFlash: {fileID: 3294311478971310070}
   fireEventName: Play_shot_blaster
   reloadEventName: Play_reload_pistol

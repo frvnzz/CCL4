@@ -25,7 +25,6 @@ MonoBehaviour:
     guid: 5eafc1515ceb5e41ab380fb936e669dc
     GuidInternal: 
     m_lastTime: -8584521395977368576
-    m_lastTime: -8584524056340856700
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
@@ -40,7 +39,6 @@ MonoBehaviour:
     guid: a3e50584da62f04c8d7cca87d3019a2d
     GuidInternal: 
     m_lastTime: -8584513482884076094
-    m_lastTime: -8584513272288689161
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -69,8 +67,6 @@ MonoBehaviour:
     guid: a891c0ac6b06e84e86cead30ea710961
     GuidInternal: 
     m_lastTime: -8584512606960438502
-    m_lastTime: -8584512612904867926
-    m_lastTime: -8584512625377579014
     List:
     - name: Default
       guid: cb951296a62aad4e8ab6cf97e786e51b
@@ -99,8 +95,6 @@ MonoBehaviour:
     guid: 59801aecff0f8043b2e6277cf1d34f86
     GuidInternal: 
     m_lastTime: -8584512606960445639
-    m_lastTime: -8584512612905202124
-    m_lastTime: -8584513272288695445
     List:
     - name: Play_barrel_explosion
       guid: 3fea4faa6f27ab4baa639b42059263d7
@@ -117,8 +111,8 @@ MonoBehaviour:
         guid: 3fea4faa6f27ab4baa639b42059263d7
       Path: Events/Default Work Unit/Play_barrel_explosion
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.2585034
+      minDuration: 1.2585034
     - name: Play_enemy_attack
       guid: 585c5006f69b6d49bda17f72cb095ac3
       id: 2257393085
@@ -134,8 +128,8 @@ MonoBehaviour:
         guid: 585c5006f69b6d49bda17f72cb095ac3
       Path: Events/Default Work Unit/Play_enemy_attack
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.7166123
+      minDuration: 0.5525836
     - name: Play_enemy_death
       guid: 9849824d105a84478cef8cf18210933b
       id: 3046156865
@@ -151,8 +145,8 @@ MonoBehaviour:
         guid: 9849824d105a84478cef8cf18210933b
       Path: Events/Default Work Unit/Play_enemy_death
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.83315194
+      minDuration: 0.83315194
     - name: Play_enemy_growling
       guid: 20d2d3eaed7b89448ec8b9530ece0a72
       id: 4252844392
@@ -170,9 +164,6 @@ MonoBehaviour:
       maxAttenuation: 20
       maxDuration: 0
       minDuration: 0
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Play_enemy_growling_01
       guid: cf0720ce9d0e0743bb8f7f771fcf6a68
       id: 3058844094
@@ -190,9 +181,6 @@ MonoBehaviour:
       maxAttenuation: 20
       maxDuration: 0
       minDuration: 0
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Play_footsteps
       guid: 52d3a3d848fdb249a5aa30f59fcf2f87
       id: 3854155799
@@ -208,8 +196,8 @@ MonoBehaviour:
         guid: 52d3a3d848fdb249a5aa30f59fcf2f87
       Path: Events/Default Work Unit/Play_footsteps
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_footsteps_enemies
       guid: ccf8f12f30fa3c48a368df3430b679d5
       id: 3731210710
@@ -242,8 +230,8 @@ MonoBehaviour:
         guid: 5293d4d608fa7a41af93182a62faad15
       Path: Events/Default Work Unit/Play_hit_sound
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.54945576
+      minDuration: 0.54945576
     - name: Play_Hitmarker_Sound_Effect
       guid: 64c9792157c2fd4ba1a2e4757e419342
       id: 2247968809
@@ -259,8 +247,8 @@ MonoBehaviour:
         guid: 64c9792157c2fd4ba1a2e4757e419342
       Path: Events/Default Work Unit/Play_Hitmarker_Sound_Effect
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.055079363
+      minDuration: 0.055079363
     - name: Play_jump
       guid: 87444905129fbf4a9c05686ee9f53f59
       id: 3689126666
@@ -276,8 +264,8 @@ MonoBehaviour:
         guid: 87444905129fbf4a9c05686ee9f53f59
       Path: Events/Default Work Unit/Play_jump
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.34520385
+      minDuration: 0.28201696
     - name: Play_lake_ambience
       guid: 19e58e8b73839d4bb398165a2742aae3
       id: 1923763734
@@ -309,7 +297,6 @@ MonoBehaviour:
         ObjectType: 3
         guid: 9c812c81010bf74cbf8cfb76940f701e
       Path: Events/Default Work Unit/Play_pickup_item
-      Path: Events/Default Work Unit/Play_lake_ambience
       maxAttenuation: 0
       maxDuration: 0.33698413
       minDuration: 0.33698413
@@ -328,8 +315,8 @@ MonoBehaviour:
         guid: 85d04c1c0c39354a92d1261768fa5335
       Path: Events/Default Work Unit/Play_reload_ak
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.5745806
+      minDuration: 1.5745806
     - name: Play_reload_pistol
       guid: ca1f633bffec174bbd7b54596026097e
       id: 3985654505
@@ -345,8 +332,8 @@ MonoBehaviour:
         guid: ca1f633bffec174bbd7b54596026097e
       Path: Events/Default Work Unit/Play_reload_pistol
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.6362708
+      minDuration: 0.6362708
     - name: Play_shot_ak
       guid: 6f3ded0654ef0d4d8b8a461f6b6d9889
       id: 3688125357
@@ -362,8 +349,8 @@ MonoBehaviour:
         guid: 6f3ded0654ef0d4d8b8a461f6b6d9889
       Path: Events/Default Work Unit/Play_shot_ak
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.61646104
+      minDuration: 0.58186173
     - name: Play_shot_blaster
       guid: d4bbc9e887908f4490596368f39dddc6
       id: 890804688
@@ -379,8 +366,8 @@ MonoBehaviour:
         guid: d4bbc9e887908f4490596368f39dddc6
       Path: Events/Default Work Unit/Play_shot_blaster
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.74988
+      minDuration: 1.6046469
     - name: Play_shot_pistol
       guid: 588843ff6354e84e8c8aa16966bf1d9f
       id: 4049239284
@@ -396,8 +383,8 @@ MonoBehaviour:
         guid: 588843ff6354e84e8c8aa16966bf1d9f
       Path: Events/Default Work Unit/Play_shot_pistol
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.5576459
+      minDuration: 0.52634764
     - name: Play_ZombieWave
       guid: e0d59a02d2137744be8ed2b408f561bb
       id: 1047976919
@@ -413,8 +400,8 @@ MonoBehaviour:
         guid: e0d59a02d2137744be8ed2b408f561bb
       Path: Events/Default Work Unit/Play_ZombieWave
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 6.080354
+      minDuration: 6.080354
     - name: Stop_enemy_growling
       guid: 52a65f06b00f8e4f8a3dcd4deb3c7337
       id: 2808512190
@@ -461,7 +448,6 @@ MonoBehaviour:
     guid: 5b30ad9a7f7f9e4c9739e500eedee5e3
     GuidInternal: 
     m_lastTime: -8584513738159700779
-    m_lastTime: -8584513738977938578
     List:
     - name: Play_click_sound
       guid: e4e149da5e3ec2468ec8f0556c6e9ec2
@@ -478,8 +464,8 @@ MonoBehaviour:
         guid: e4e149da5e3ec2468ec8f0556c6e9ec2
       Path: Events/UI_Sounds/Play_click_sound
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.13866666
+      minDuration: 0.13866666
     - name: Play_main_music
       guid: 5f1fa9b9515f674d8ee51e385853a114
       id: 414863633
@@ -495,8 +481,8 @@ MonoBehaviour:
         guid: 5f1fa9b9515f674d8ee51e385853a114
       Path: Events/UI_Sounds/Play_main_music
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     PathAndIcons:
@@ -510,7 +496,6 @@ MonoBehaviour:
     guid: 73f73d79bbc8c243a7abe49e686234cc
     GuidInternal: 
     m_lastTime: -8584513482884078225
-    m_lastTime: -8584513272288692173
     List:
     - name: MasterVolume
       guid: 242468d042280a46a30b7a206a021c5c
@@ -553,7 +538,6 @@ MonoBehaviour:
     guid: f35624ca0789ee4db84e98c684a052dc
     GuidInternal: 
     m_lastTime: -8584521395977374746
-    m_lastTime: -8584524056340870610
     List: []
   SwitchWwu:
   - PhysicalPath: Switches/Default Work Unit.wwu
@@ -568,7 +552,6 @@ MonoBehaviour:
     guid: cb15bafb0bf3414781396848e1777995
     GuidInternal: 
     m_lastTime: -8584521395977373712
-    m_lastTime: -8584524056340868846
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers/Default Work Unit.wwu
@@ -583,7 +566,6 @@ MonoBehaviour:
     guid: 10ff2ed9ac78f14e95ba363bdb97d47b
     GuidInternal: 
     m_lastTime: -8584521395977373042
-    m_lastTime: -8584524056340867201
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 0500000006000000070000000d0000000e0000001200000013000000150000001600000047000000480000009300000094000000

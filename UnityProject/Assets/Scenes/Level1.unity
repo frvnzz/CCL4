@@ -17439,8 +17439,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2740288764642562020, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_margin.w
+      value: -726.8141
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740288764642562020, guid: 08bb95816dea2442c978514493326a8b, type: 3}
       propertyPath: m_margin.x
-      value: -1030.6132
+      value: -631.7234
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740288764642562020, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_margin.y
+      value: -214.69994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740288764642562020, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_margin.z
+      value: -641.3756
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740288764642562020, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2761575257974136423, guid: 08bb95816dea2442c978514493326a8b, type: 3}
       propertyPath: m_Name
@@ -17584,7 +17600,11 @@ PrefabInstance:
       objectReference: {fileID: 203733928}
     - target: {fileID: 8643957291176253737, guid: 08bb95816dea2442c978514493326a8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -135
+      value: -213
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643957291176253737, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -87
       objectReference: {fileID: 0}
     - target: {fileID: 8803432460255970548, guid: 08bb95816dea2442c978514493326a8b, type: 3}
       propertyPath: m_fontStyle

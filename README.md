@@ -1,4 +1,4 @@
-# CCL4 - Group 8 Portfolio
+# CCL4 Group 8 - Deadwood Portfolio
 
 The final project report can be found [here](/eCampusSubmission/Documentation/ProjectReport.md).
 
@@ -59,5 +59,5 @@ The test scene shows a player capsule that is followed by the enemy capsule that
 - Ammo box spawns
 
 ### System infrastructure
-#### Class diagram (NOT FINISHED, still needs to be consolidated - still a lot of test scripts that will not be used in the final version):
+#### Class diagram:
 ![Class diagram (NOT FINISHED, still needs to be consolidated)](./img/include.svg)

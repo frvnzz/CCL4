@@ -132,7 +132,7 @@ public class SpawnController : MonoBehaviour
         Color whiteColor = new Color(1f, 1f, 1f, originalAlpha);
 
         // Move to center top (anchor at top center, position zero) and fade color to white
-        Vector2 topCenterAnchor = new Vector2(0.5f, 1f);
+        Vector2 topCenterAnchor = new Vector2(0.5f, 0.95f);
         Vector2 topCenterPosition = Vector2.zero;
         float moveDuration = 0.5f;
 

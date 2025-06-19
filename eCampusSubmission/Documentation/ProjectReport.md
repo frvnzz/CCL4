@@ -9,7 +9,7 @@ Names:
 - Marcus Fichtinger - cc231016
 - Franz-Aurel Huber - cc231014
 
-Your Project Name: 
+Your Project Name: Deadwood
 
 #
 
