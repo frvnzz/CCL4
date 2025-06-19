@@ -27,11 +27,11 @@
 				</Property>
 				<Property Name="LicenseKey" Type="string" Value="PHByb2plY3QgaWQ9IjE0ODA2IiBtYXNrPSJMR0ZEOTU1MyIgZW5jPSIwIj48bGlj ZW5zZSBpZD0iMjIiIG5hbWU9IkxldmVsIEEgTGljZW5zZSIgdHlwZT0iMyIgcGxh dGZvcm1zPSIyLDMsNCwxMCwxNCIgZXhwaXJlcz0iMjAyNC0xMC0yNSIgIC8+PGxp Y2Vuc2UgaWQ9IjEiIG5hbWU9Ild3aXNlIiB0eXBlPSIzIiBwbGF0Zm9ybXM9IjIs Myw0LDEwLDE0IiBleHBpcmVzPSIyMDI1LTA5LTMwIiAgLz48bGljZW5zZSBpZD0i MjEiIG5hbWU9Ik1haW50ZW5hbmNlIiB0eXBlPSIzIiBwbGF0Zm9ybXM9IjIsMyw0 LDEwLDE0IiBleHBpcmVzPSIyMDI1LTA5LTMwIiAgLz48bGljZW5zZSBpZD0iMjUi IG5hbWU9IkFsbCBXd2lzZSBQbHVnLUlucyIgdHlwZT0iMyIgIGV4cGlyZXM9IjIw MjUtMDktMzAiICAvPjwvcHJvamVjdD4=|ESgNGTVnsHJpiOZGM5Vq6IxgSQLJTog B9UiaU/3Uu3bWYD4ulJ5gJacjQROmJYc02AO30TDziuw6UNF2IiPIAM12LSoMm81 oiG09TrVYu82nciH8UQMijEqN21r7v1qg6ZUGW+2q+a8pi0hF+qNvOxGeYtPTOa0 MKHNdyaTZEAmyIAqCERPjaTpoAeAM+/QooeCKRsNERrMwAUwMbuGfXzNBfqYktrS XEFFjVvfMq4mmcfSzPRvWPtEcXtxH9f0fAOJikSJH3VwUdHgR+P8CKJln6yX4NEc zWAe7xpoDgOZ8Ou/JR0o2tBbgaVVapurMmYigcUka3QQ2iBih6TrL0g== " />
 				<Property Name="SoundBankGenerateHeaderFile" Type="bool" Value="True" />
-				<Property Name="SoundBankGenerateEstimatedDuration" Type="bool" Value="True" /><Property Name="SoundBankHeaderFilePath" Type="string" Value="..\Assets\StreamingAssets\Audio\GeneratedSoundBanks" />
+				<Property Name="SoundBankGenerateEstimatedDuration" Type="bool" Value="True" /><Property Name="SoundBankHeaderFilePath" Type="string" Value="..\Assets\StreamingAssets\Audio\GeneratedSoundbanks" />
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
-						<Value Platform="Mac">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\</Value>
-						<Value Platform="Windows">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\</Value>
+						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
+						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">

@@ -1600,24 +1600,15 @@ MonoBehaviour:
   - {fileID: 749622608}
   - {fileID: 362980730}
   spawnInterval: 2
-  difficultyLevel: 1
+  waveCooldown: 5
+  initialEnemyCount: 5
+  enemyScalingFactor: 1.2
+  maxEnemiesAlive: 50
   waveText: {fileID: 133112809}
-  waves:
-  - enemies:
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
-    spawnDelay: 10
-  - enemies:
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
-    spawnDelay: 5
-  - enemies:
-    - {fileID: 7683509917742979104, guid: 801e0223307e7954b928ad5eddd172e8, type: 3}
-    - {fileID: 7683509917742979104, guid: 79fb86df14f9e7940acf763a0fc380b6, type: 3}
-    - {fileID: 7683509917742979104, guid: 00965c5142b1bd849a5e250c7a813d8b, type: 3}
-    spawnDelay: 2
+  enemyPrefabs: []
+  crateSpawnPoints: []
+  cratesPerWave: 0
+  cratePrefabs: []
 --- !u!4 &1436001602
 Transform:
   m_ObjectHideFlags: 0

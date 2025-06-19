@@ -20,6 +20,8 @@ They are all free but you will need to download them manually from the [Unity As
 - [POLY - Lite Survival Collection](https://assetstore.unity.com/packages/3d/props/poly-lite-survival-collection-220452)
 - [Low Poly Barriers Pack Free](https://assetstore.unity.com/packages/3d/props/exterior/low-poly-barriers-pack-free-201810)
 - [Industrial Props Kit](https://assetstore.unity.com/packages/3d/props/industrial/industrial-props-kit-84745)
+- [Particle Pack](https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325)
+- [Stylized M4 Assault Rifle with Scope Complete Kit with Gunshot VFX and Sound - Hand Painted AR Machine Gun Automatic Rifle](https://assetstore.unity.com/packages/3d/props/guns/stylized-m4-assault-rifle-with-scope-complete-kit-with-gunshot-v-178197)
 
 ---
 
