@@ -22,8 +22,8 @@ public class PlayerCamera : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         if (cameraTransform == null)
             cameraTransform = GetComponentInChildren<Camera>().transform;
-        // Optionally get sensitivity from GameManager if needed
-        // mouseSensitivity = GameManager.instance.mouseSensitivity;
+
+        mouseSensitivity = GameManager.instance.mouseSensitivity;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

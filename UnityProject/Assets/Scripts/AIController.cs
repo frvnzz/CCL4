@@ -144,7 +144,6 @@ public class AIController : MonoBehaviour
         AkUnitySoundEngine.PostEvent("Play_enemy_death", gameObject);
         SetRagdollActive(true);
         NotifyDeath();
-        GameManager.instance.AddScore(100); //Add score for defeating the enemy
         Destroy(gameObject, despawnEnemyTime);
     }
 
@@ -159,6 +158,7 @@ public class AIController : MonoBehaviour
     IEnumerator DamageDelay()
     {
         AkUnitySoundEngine.PostEvent("Play_enemy_attack", gameObject);
+        AkUnitySoundEngine.PostEvent("Play_hit_sound", gameObject);
         yield return new WaitForSeconds(attackDelay);
         invulnerable = false;
         isAttacking = false;
@@ -168,6 +168,7 @@ public class AIController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
+        GameManager.instance.AddScore(10); //Add score for hitting the enemy
         if (health <= 0)
         {
             DestroyEnemy();

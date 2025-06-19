@@ -1007,6 +1007,19 @@
 				<Sound Name="enemy_attack" ID="{B80B25EC-9D98-4927-9ED6-D18A0699AAEB}" ShortID="240835226">
 					<PropertyList>
 						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{3F489C90-B844-40F8-B287-9A882883C71E}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="50"/>
+											<Property Name="Min" Type="Real64" Value="-400"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -1197,6 +1210,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="hit_sound" ID="{09DA370E-E28E-4AEB-AED3-37EC603C84DC}" ShortID="550555695">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-2</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02D883E-1F98-41EC-833D-735C6934C91A}"/>
@@ -1227,7 +1247,7 @@
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-7</Value>
+								<Value>-1</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1236,7 +1256,7 @@
 							<Custom>
 								<Attenuation Name="Attenuation (Custom)" ID="{A35D2FB7-D1A6-43D5-8007-CE33C4274D50}" ShortID="118261872">
 									<PropertyList>
-										<Property Name="RadiusMax" Type="Real64" Value="7"/>
+										<Property Name="RadiusMax" Type="Real64" Value="15"/>
 									</PropertyList>
 									<CurveUsageInfoList>
 										<VolumeDryUsage>
@@ -1253,7 +1273,7 @@
 															<SegmentShape>Log3</SegmentShape>
 														</Point>
 														<Point>
-															<XPos>7</XPos>
+															<XPos>15</XPos>
 															<YPos>-200</YPos>
 															<Flags>37</Flags>
 														</Point>
@@ -1411,6 +1431,29 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Left Gravel Footstep 4" ID="{CCA759BE-91D2-4559-B2A5-2EA37D9FE258}" ShortID="866513546">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-500</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{79420E28-78B8-49E1-B075-6D044B713AE2}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02D883E-1F98-41EC-833D-735C6934C91A}"/>
@@ -1438,6 +1481,29 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Left Gravel Footstep 5" ID="{810D5FAE-0016-4659-9F1D-E72E6D4EB2B4}" ShortID="602359293">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-500</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{8858D236-6DA0-46DA-8836-042C5B0E7897}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02D883E-1F98-41EC-833D-735C6934C91A}"/>
