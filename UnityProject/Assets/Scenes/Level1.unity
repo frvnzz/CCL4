@@ -3667,6 +3667,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3122196141085215150, guid: d052cb0355dbf442684b486d5c2a8b63, type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122196141085215150, guid: d052cb0355dbf442684b486d5c2a8b63, type: 3}
       propertyPath: muzzleFlash
       value: 
       objectReference: {fileID: 680985535}
@@ -6145,6 +6149,10 @@ PrefabInstance:
     - target: {fileID: 639783256847048431, guid: 921ffcc74c8f70940b7302ac8f91a986, type: 3}
       propertyPath: m_Name
       value: explosive (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718140381666203607, guid: 921ffcc74c8f70940b7302ac8f91a986, type: 3}
+      propertyPath: explosionDamage
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10987,7 +10995,7 @@ MonoBehaviour:
   spawnInterval: 5
   waveCooldown: 5
   initialEnemyCount: 5
-  enemyScalingFactor: 1.2
+  enemyScalingFactor: 1.5
   maxEnemiesAlive: 50
   waveText: {fileID: 1331627920}
   enemyPrefabs:
@@ -17426,6 +17434,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -193
       objectReference: {fileID: 0}
+    - target: {fileID: 2740288764642562020, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740288764642562020, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_margin.x
+      value: -1030.6132
+      objectReference: {fileID: 0}
     - target: {fileID: 2761575257974136423, guid: 08bb95816dea2442c978514493326a8b, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -17534,6 +17550,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6337455450669032757, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337455450669032757, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337455450669032757, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337455450669032757, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337455450669032757, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337455450669032757, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7067124027334328083, guid: 08bb95816dea2442c978514493326a8b, type: 3}
       propertyPath: uiInput
       value: 
@@ -17542,6 +17582,10 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 203733928}
+    - target: {fileID: 8643957291176253737, guid: 08bb95816dea2442c978514493326a8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -135
+      objectReference: {fileID: 0}
     - target: {fileID: 8803432460255970548, guid: 08bb95816dea2442c978514493326a8b, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -29213,6 +29257,10 @@ PrefabInstance:
     - target: {fileID: 639783256847048431, guid: 921ffcc74c8f70940b7302ac8f91a986, type: 3}
       propertyPath: m_Name
       value: explosive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718140381666203607, guid: 921ffcc74c8f70940b7302ac8f91a986, type: 3}
+      propertyPath: explosionDamage
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

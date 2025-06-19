@@ -33,7 +33,7 @@ public class SpawnController : MonoBehaviour
         if (GameManager.instance.LimitEnemySpawns)
         {
             maxEnemiesAlive = 1000;
-            enemyScalingFactor = 1.5f;
+            enemyScalingFactor = 2f;
         }
 
         StartCoroutine(HandleInfiniteWaves()); // Start infinite wave spawning
