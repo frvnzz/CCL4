@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 8985053883278989553, guid: e869bedd45d54e44998e71b1f380dd70, type: 3}
-  ammoAmount: 30
+  ammoAmount: 90
 --- !u!65 &-9154504452278474047
 BoxCollider:
   m_ObjectHideFlags: 0
