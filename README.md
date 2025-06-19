@@ -1,6 +1,9 @@
 # CCL4 Group 8 - Deadwood Portfolio
 
-The final project report can be found [here](/eCampusSubmission/Documentation/ProjectReport.md).
+The final project report can be found [here](/eCampusSubmission/Documentation/ProjectReport.md).  
+
+### Latest Release
+You can download the latest release (v1.0) [here](https://github.com/frvnzz/CCL4/releases/tag/v1.0).
 
 ### How to Run the Program (User Guideline)
 1. **Download and Install Unity 6**  
