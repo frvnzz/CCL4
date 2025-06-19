@@ -39,6 +39,8 @@ Include sounds like jumping, shooting with different weapons, reloading and foot
 Include sounds for button clicks, hitmarkers, background music and a sound effect to indicate a completed wave
   4.  Environment sounds  
 Include all other sounds like explosions and water
+  5. Conversion
+Convert the audio files for smaller file sizes with Auto Medium Sample Rate and Vorbis Format with Quality Level 2.
 
 - Unity Coding:
   1. Enemy AI that handles chasing and attacking the player ([`AIController.cs`](../../UnityProject/Assets/Scripts/AIController.cs))

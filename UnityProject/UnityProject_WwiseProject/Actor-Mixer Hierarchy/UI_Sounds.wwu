@@ -77,6 +77,11 @@
 						<Sound Name="main_music" ID="{E179FF1E-EFAA-4026-B590-3B93410D6678}" ShortID="334035034">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
