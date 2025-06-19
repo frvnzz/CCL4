@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -73,6 +74,8 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Time.timeScale = 1f; // Ensure time scale is reset when a new scene is loaded
+
         if (scene.name == "Level1")
         {
             weaponManager = FindFirstObjectByType<WeaponManager>();
@@ -111,7 +114,9 @@ public class GameManager : MonoBehaviour
     {
         HUD.instance.ShowGameOver(true);
         AkUnitySoundEngine.StopAll();
-        // Time.timeScale = 0f; // Pause the game
+        PlayerInput playerInput = player.GetComponent<PlayerInput>();
+        playerInput.DeactivateInput(); // Deactivate player input
+        Time.timeScale = 0f; // Pause the game
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         Cursor.visible = true; // Make the cursor visible
     }
@@ -121,7 +126,7 @@ public class GameManager : MonoBehaviour
         currentHealth = maxHealth;
         HUD.instance.SetHealth(currentHealth);
         HUD.instance.ShowGameOver(false);
-        // Time.timeScale = 1f; // Resume the game
+        Time.timeScale = 1f; // Resume the game
 
         // Reset score
         currentScore = 0;
