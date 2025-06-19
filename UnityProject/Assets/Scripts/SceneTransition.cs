@@ -6,6 +6,7 @@ public class SceneTransition : MonoBehaviour
     public Canvas newCanvas;
     public void LoadScene(string sceneName)
     {
+        AkUnitySoundEngine.StopAll(); // Stop all sounds before loading a new scene
         // Load the specified scene
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
