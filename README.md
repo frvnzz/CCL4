@@ -26,6 +26,7 @@ You can download the latest release (v1.0) [here](https://github.com/frvnzz/CCL4
    Please refer to [`ThirdPartyAssets.md`](./ThirdPartyAssets.md) for a list of the required assets and download instructions. 
 
 5. **Run the Scene**  
+   Start the Game from the `MainMenu` scene
 
 ### Mockup
 The test scene shows a player capsule that is followed by the enemy capsule that shoots out a raycast for the player hit. The player will be followed around by the enemy and the player needs to fight off the waves of enemies, which are displayed in the UI.
