@@ -14,8 +14,8 @@ They are all free but you will need to download them manually from the [Unity As
 - [Low Poly Fantasy Medieval Village Vol.2 Lite](https://assetstore.unity.com/packages/3d/environments/fantasy/low-poly-fantasy-medieval-village-vol-2-lite-242322)
 - [Low Poly Food Lite](https://assetstore.unity.com/packages/3d/props/food/low-poly-food-lite-258693)
 - [Lite Farm Pack - Low Poly 3D Art by Gridness](https://assetstore.unity.com/packages/3d/environments/industrial/lite-farm-pack-low-poly-3d-art-by-gridness-243315)
-- [Anime Nature](https://assetstore.unity.com/packages/3d/environments/anime-nature-276931#content)
-- [Idyllic Fantasy Nature](https://assetstore.unity.com/packages/3d/environments/fantasy/idyllic-fantasy-nature-260042#content)
+- [Anime Nature](https://assetstore.unity.com/packages/3d/environments/anime-nature-276931)
+- [Idyllic Fantasy Nature](https://assetstore.unity.com/packages/3d/environments/fantasy/idyllic-fantasy-nature-260042)
 - [Simple Low Poly Nature Pack](https://assetstore.unity.com/packages/3d/environments/landscapes/simple-low-poly-nature-pack-157552)
 - [POLY - Lite Survival Collection](https://assetstore.unity.com/packages/3d/props/poly-lite-survival-collection-220452)
 - [Low Poly Barriers Pack Free](https://assetstore.unity.com/packages/3d/props/exterior/low-poly-barriers-pack-free-201810)
@@ -23,7 +23,7 @@ They are all free but you will need to download them manually from the [Unity As
 - [Particle Pack](https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325)
 - [Stylized M4 Assault Rifle with Scope Complete Kit with Gunshot VFX and Sound - Hand Painted AR Machine Gun Automatic Rifle](https://assetstore.unity.com/packages/3d/props/guns/stylized-m4-assault-rifle-with-scope-complete-kit-with-gunshot-v-178197)
 
----
+#
 
 ### How to Import
 1. Add the Assets listed above to your Unity Account  

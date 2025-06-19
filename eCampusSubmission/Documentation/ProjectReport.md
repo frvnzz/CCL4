@@ -20,14 +20,14 @@ The main inspiration of our project was a game called [Call of Mini: Zombies](ht
 
 - 3D Modeling:
   1. Three different zombies that are fully textured and rigged. They all have an idle animation, a walking animation and an attack animation. (see [`UnityProject/Assets/Prefabs/Zombies`](../../UnityProject/Assets/Prefabs/Zombies))
-  2. An explosive barrel model (see [`UnityProject/Assets/Models/explosive.fbx`](../../UnityProject/Models/explosive.fbx))
-  3. An AK-47 model (see [`UnityProject/Assets/Models/ak.fbx`](../../UnityProject/Models/ak.fbx))
-  4. A pistol model (see [`UnityProject/Assets/Models/pistol.fbx`](../../UnityProject/Models/pistol.fbx))
-  5. A blaster model (see [`UnityProject/Assets/Models/blaster.fbx`](../../UnityProject/Models/blaster.fbx))
-  6. A car model (see [`UnityProject/Assets/Models/car.fbx`](../../UnityProject/Models/car.fbx))
-  7. A house model (see [`UnityProject/Assets/Models/house.fbx`](../../UnityProject/Models/house.fbx))
+  2. An explosive barrel model (see [`UnityProject/Assets/Models/explosive.fbx`](../../UnityProject/Assets/Models/explosive.fbx))
+  3. An AK-47 model (see [`UnityProject/Assets/Models/ak.fbx`](../../UnityProject/Assets/Models/ak.fbx))
+  4. A pistol model (see [`UnityProject/Assets/Models/pistol.fbx`](../../UnityProject/Assets/Models/pistol.fbx))
+  5. A blaster model (see [`UnityProject/Assets/Models/blaster.fbx`](../../UnityProject/Assets/Models/blaster.fbx))
+  6. A car model (see [`UnityProject/Assets/Models/car.fbx`](../../UnityProject/Assets/Models/car.fbx))
+  7. A house model (see [`UnityProject/Assets/Models/house.fbx`](../../UnityProject/Assets/Models/house.fbx))
 
-All other models that were not created by us are documented in [`ThirdPartyAssets.md`](../../ThirdPartyAssets.md)
+All other assets that were not created by us have been documented in [`ThirdPartyAssets.md`](../../ThirdPartyAssets.md)
 
 - Game Audio:
   1. Enemy sounds  
