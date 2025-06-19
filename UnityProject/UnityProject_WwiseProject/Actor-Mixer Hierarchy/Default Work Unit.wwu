@@ -982,6 +982,11 @@
 				<Sound Name="barrel_explosion" ID="{0A8C67E1-F926-4C85-A60A-0AB90A2A9B7E}" ShortID="569326226">
 					<PropertyList>
 						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -1629,7 +1634,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-4</Value>
+								<Value>-7</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1652,6 +1657,28 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="ZombieWave" ID="{8916B35B-217E-4DCF-ACE9-8DE9C303E32C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="pickup_item" ID="{35C50AA0-3785-4DE1-91E2-986308A98E9A}" ShortID="578416202">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E02D883E-1F98-41EC-833D-735C6934C91A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8405E5A3-62DA-4CF0-8D7C-CA87D3019A2D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="inspect item" ID="{603D1B16-D302-4E08-876D-C155AB3760FE}">
+							<Language>SFX</Language>
+							<AudioFile>inspect item.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="340871161"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="inspect item" ID="{603D1B16-D302-4E08-876D-C155AB3760FE}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

@@ -23,6 +23,7 @@
 						<ObjectRef Name="Play_lake_ambience" ID="{8B8EE519-8373-4B9D-B398-165A2742AAE3}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_barrel_explosion" ID="{AA4FEA3F-276F-4BAB-AA63-9B42059263D7}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hitmarker_Sound_Effect" ID="{2179C964-C257-4BFD-A1A2-E4757E419342}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_pickup_item" ID="{812C819C-0B01-4CF7-BF8C-FB76940F701E}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shot_ak" ID="{06ED3D6F-EF54-4D0D-8B8A-461F6B6D9889}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_main_music" ID="{B9A91F5F-5F51-4D67-8EE5-1E385853A114}" WorkUnitID="{9AAD305B-7F7F-4C9E-9739-E500EEDEE5E3}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shot_pistol" ID="{FF438858-5463-4EE8-8C8A-A16966BF1D9F}" WorkUnitID="{EC1A8059-0FFF-4380-B2E6-277CF1D34F86}" Origin="Manual" Filter="7"/>

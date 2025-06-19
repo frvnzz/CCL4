@@ -14,6 +14,7 @@ public class AmmoBoxPickup : MonoBehaviour
         {
             WeaponManager weaponManager = other.GetComponentInParent<WeaponManager>();
             weaponManager.AddAmmo(weaponPrefab, ammoAmount);
+            AkUnitySoundEngine.PostEvent("Play_pickup_item", gameObject); // Play ammo pickup sound
             Destroy(gameObject); // Remove the ammo box after pickup
         }
     }
