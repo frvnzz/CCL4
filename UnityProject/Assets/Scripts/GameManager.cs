@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
         {
             weaponManager = FindFirstObjectByType<WeaponManager>();
             player = GameObject.FindGameObjectWithTag("Player");
+            // PlayerInput playerInput = player.GetComponent<PlayerInput>();
+            // playerInput.ActivateInput(); // Activate player input
 
             currentHealth = maxHealth;
             currentScore = 0;
@@ -114,8 +116,8 @@ public class GameManager : MonoBehaviour
     {
         HUD.instance.ShowGameOver(true);
         AkUnitySoundEngine.StopAll();
-        PlayerInput playerInput = player.GetComponent<PlayerInput>();
-        playerInput.DeactivateInput(); // Deactivate player input
+        // PlayerInput playerInput = player.GetComponent<PlayerInput>();
+        // playerInput.DeactivateInput(); // Deactivate player input
         Time.timeScale = 0f; // Pause the game
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         Cursor.visible = true; // Make the cursor visible
