@@ -11,6 +11,8 @@ Names:
 
 Your Project Name: Deadwood
 
+Note: The links to files below are handled through relative paths and only work in conjunction with the project files (e.g. on GitHub)!
+
 #
 
 ### A Short Summary to Promote the Project (What are the Background and the Motivation of the project?): 
@@ -58,7 +60,6 @@ Convert the audio files for smaller file sizes with Auto Medium Sample Rate and 
   2. Ammunition box spawn system ([`SpawnController.cs`](../../UnityProject/Assets/Scripts/SpawnController.cs))
 
 #### Implementation Logic Explanation:
-(Explain how you implement the idea step by step compactly and clearly.)
 ##### Player Scripts
   - **PlayerCamera.cs**
     Uses the Vector2 from Unitys new Input System to move the camera using the mouse. The rotation is limited, so the player can only look up and down so far.
@@ -110,9 +111,7 @@ Convert the audio files for smaller file sizes with Auto Medium Sample Rate and 
   - **GameManager.cs**
     Handles things like game over, player health, etc. It also saves the mouse sensitivity and volume persistently across scenes.
   - **SpawnController.cs**
-
-    It also handles spawning the interactable ammunition crates per wave at random specified locations.
-
+    Handles the spawning of enemies and interactable ammunition crates for each wave. The script manages the difficulty of higher waves through scaling the number of enemies. It uses `Random.Range(0, enemyPrefabs.Length)` to select enemies from an array and spawn them. It tracks the of enemies currently alive and only starts a new wave when all of them have been defeated. A completed wave gets animated with a smooth transition and a flash effect.
 
 #### Three Important Achievements:
 1. Interactable systems like the explosive barrels, ammo pickups, and persistent settings for a polished feel
