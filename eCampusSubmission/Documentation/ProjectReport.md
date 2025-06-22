@@ -1,4 +1,4 @@
-# Code Review Report
+# Project Report
 Course: CCL4 SS 2025 (5 ECTS, 3 SWS)
 
 CCL Group: 8
@@ -39,7 +39,7 @@ Include sounds like jumping, shooting with different weapons, reloading and foot
 Include sounds for button clicks, hitmarkers, background music and a sound effect to indicate a completed wave
   4.  Environment sounds  
 Include all other sounds like explosions and water
-  5. Conversion
+  5. Conversion  
 Convert the audio files for smaller file sizes with Auto Medium Sample Rate and Vorbis Format with Quality Level 2.
 
 - Unity Coding:
@@ -60,49 +60,58 @@ Convert the audio files for smaller file sizes with Auto Medium Sample Rate and 
 #### Implementation Logic Explanation:
 (Explain how you implement the idea step by step compactly and clearly.)
 ##### Player Scripts
-  - PlayerCamera.cs
+  - **PlayerCamera.cs**
     Uses the Vector2 from Unitys new Input System to move the camera using the mouse. The rotation is limited, so the player can only look up and down so far.
-  - PlayerMovement.cs
+  - **PlayerMovement.cs**
     The player is being moved by the physics engine using the rigidbody and linear velocity. Because physics are being used, the movement needs to happen in the fixed updated method. For the jump method a simple ground check is done, by sending out a raycast to the bottom. When the player is a allowed to jump, a force is added to the rigidbody. There is also the isSprinting boolean. Depending on its value the speed of the player is set accordingly.
-  - WeaponManager.cs
+  - **WeaponManager.cs**
     There is a lot happening in this script, but to keep it short: there are multiple methods for different purposes, such as: Fire(), Reloading(), HandleGunSwitch(), EquipGun(), AddAmmo(), etc.
     Fire() does what it says it does. It handles all of the raycasts and depending on the gun, the fire rate if it is automatic. The stats of a weapon are defined by the GunStats class that is applied to each prefab of a weapon.
     HandleGunSwitch and EquipGun handle all of the changing of the current gun stats and keep track of everything. For the purpose of storing the state of each gun, when switching, a List of type WeaponInstance is used, which store all of the current states.
     AddAmmo() is used when the player picks up an ammo crate and is called by the individual crate on collision enter.
-  - WeaponWobble.cs
+  - **WeaponWobble.cs**
     Moves the weapon depending on the input vectors of the player. So it moves depending on the movement of the player and when shooting it adds knockback to the weapon.
     When reloading the gun is being pulled to the bottom of the view to visualize the reloading process.
-  - WeaponInstance.cs
+  - **WeaponInstance.cs**
     This is class for storing the current state of a weapon. This helps keeping track of everything for switching between different weapons.
-  - GunStats.cs
+  - **GunStats.cs**
     This script is applied to the prefabs of the weapons beforehand. Here adjustments can be made for different properties of the weapons, such as fire rate, total ammo it can have, ammo per magazine, if it is automatic, the damage, the knockback amount, the muzzle flash and much more. There are tooltips for most characteristics to help with filling out the stats for a new weapon. The name of the audio event for each weapon is also set in the stats script.
   
 ##### AI
-  - AIController.cs
+  - **AIController.cs**
     The basic enemy navigation is done by the NavMeshAgent attached to every enemy. The destination is set to the position of the player in the update method.
     When the player is in reach, the enemy will attack the player and play the according animation. Because of the animation playing, a coroutine is used to delay the damage being applied to the player until the animation has played and the player is still in reach after that time. This script also handles the death of the enemy and enables the ragdoll once an enemy has been defeated.
 
 ##### Interactables
-  - AmmoBoxPickup.cs
+  - **AmmoBoxPickup.cs**
     The pickup of the ammo box is triggered by entering the collision box of the ammo crate. This call the respective method in the weapon manager.
-  - Explosive.cs
+  - **Explosive.cs**
     When the player raycast hits an explosive, the explode() method is triggered. This will play the particle effect, play the sound, deal damage to the enemies in range and then destroy the instance.
 
 ##### UI
-  - HUD.cs
+  - **HUD.cs**
     This script has all the methods to set the UI text for things like score, ammunition, health, game over screen, etc.
-  - SceneTransition.cs
+  - **SceneTransition.cs**
     Has the method to change the scene, when a button is clicked.
-  - ScorePopup.cs
+  - **ScorePopup.cs**
     Handles the text that pops up when the player hits an enemy and a score is added to the total score.
-  - DamageVignette.cs
+  - **DamageVignette.cs**
     Handles the fading of the damage vignette/red screen, when the player has been hit.
-  - HandleToggle.cs
+  - **HandleToggle.cs**
     Handles setting the boolean of the checkbox in the main menu settings for activating "unlimited enemies", which essentially makes the enemies spawn amount increase faster and the limit of concurrent enemies alive is increased.
-  - PauseManager.cs
+  - **PauseManager.cs**
     Handles the pause screen when escape is pressed during gameplay. It pauses the game and handles the menu that appeared.
-  - UIButtonSound.cs
+  - **UIButtonSound.cs**
     Plays the button sound when a button is clicked in the main menu.
+  - **SliderSettings.cs and SliderVolume.cs**
+    They both are used for handling the input from the sliders for mouse sensitivity and volume.
+
+##### Game Logic
+  - **GameManager.cs**
+    Handles things like game over, player health, etc. It also saves the mouse sensitivity and volume persistently across scenes.
+  - **SpawnController.cs**
+
+    It also handles spawning the interactable ammunition crates per wave at random specified locations.
 
 
 #### Three Important Achievements:
