@@ -10992,9 +10992,9 @@ MonoBehaviour:
   - {fileID: 1497068457}
   - {fileID: 251707365}
   - {fileID: 523508655}
-  spawnInterval: 5
-  waveCooldown: 5
-  initialEnemyCount: 5
+  spawnInterval: 2
+  waveCooldown: 4
+  initialEnemyCount: 7
   enemyScalingFactor: 1.5
   maxEnemiesAlive: 50
   waveText: {fileID: 1331627920}

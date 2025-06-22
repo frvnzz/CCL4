@@ -1,6 +1,9 @@
 # CCL4 Group 8 - Deadwood Portfolio
 
-The final project report can be found [here](/eCampusSubmission/Documentation/ProjectReport.md).
+The final project report can be found [here](/eCampusSubmission/Documentation/ProjectReport.md).  
+
+### Latest Release
+You can download the latest release (v1.0) [here](https://github.com/frvnzz/CCL4/releases/tag/v1.0).
 
 ### How to Run the Program (User Guideline)
 1. **Download and Install Unity 6**  
@@ -16,13 +19,14 @@ The final project report can be found [here](/eCampusSubmission/Documentation/Pr
    [here](https://github.com/frvnzz/CCL4/archive/refs/heads/main.zip).  
 
 3. **Open the Project**  
-   Open Unity Hub, add the cloned repository folder, and open the project.  
+   Open Unity Hub, add the folder `UnityProject` from the cloned repository, and open the project.  
 
 4. **Import Third-Party Assets**  
    This project uses third-party assets that are not included in the repository due to license restrictions.
    Please refer to [`ThirdPartyAssets.md`](./ThirdPartyAssets.md) for a list of the required assets and download instructions. 
 
 5. **Run the Scene**  
+   Start the Game from the `MainMenu` scene
 
 ### Mockup
 The test scene shows a player capsule that is followed by the enemy capsule that shoots out a raycast for the player hit. The player will be followed around by the enemy and the player needs to fight off the waves of enemies, which are displayed in the UI.
